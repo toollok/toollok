@@ -2,7 +2,7 @@
 import SearchModal from "@/components/ui/SearchModal";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban, Mail } from "lucide-react";
 
 export default function Navbar() {
      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -80,6 +80,10 @@ export default function Navbar() {
                               <Link href="/about" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
                                    <Info size={15} /> About
                               </Link>
+
+                              <Link href="/contact" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <Mail size={15} /> Contact
+                              </Link>
                          </nav>
                     </div>
 
@@ -116,6 +120,9 @@ export default function Navbar() {
                          </Link>
                          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">
                               <Info size={16} /> About Us
+                         </Link>
+                         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">
+                              <Mail size={16} /> Contact Us
                          </Link>
 
                          <div className="pt-2 pb-1 text-[10px] uppercase font-bold text-gray-500 tracking-wider px-3">Categories</div>
