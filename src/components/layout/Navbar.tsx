@@ -2,6 +2,7 @@
 import SearchModal from "@/components/ui/SearchModal";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban, Mail } from "lucide-react";
 
 export default function Navbar() {
@@ -41,8 +42,14 @@ export default function Navbar() {
                     {/* Brand Logo */}
                     <div className="flex items-center gap-6 lg:gap-8">
                          <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsMobileMenuOpen(false)}>
-                              <div className="w-9 h-9 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                                   <Terminal size={18} className="text-white font-bold" />
+                              <div className="group-hover:scale-105 transition-transform shadow-lg shadow-blue-500/10 rounded-xl overflow-hidden flex items-center justify-center">
+                                   <Image
+                                        src="/logo.png"
+                                        alt="ToolLok Logo"
+                                        width={36}
+                                        height={36}
+                                        className="w-9 h-9 object-cover"
+                                   />
                               </div>
                               <span className="text-xl font-extrabold tracking-tight text-white">
                                    Tool<span className="text-blue-400">Lok</span>

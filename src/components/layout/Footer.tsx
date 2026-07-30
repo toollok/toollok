@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Terminal, Mail, Heart } from "lucide-react";
 
 // Inline SVG components for brand icons (since Lucide removed them)
@@ -36,8 +37,14 @@ export default function Footer() {
                          {/* Brand & Description */}
                          <div className="flex flex-col gap-4 lg:pr-8">
                               <Link href="/" className="flex items-center gap-2 group w-fit">
-                                   <div className="w-8 h-8 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-                                        <Terminal size={16} className="text-white font-bold" />
+                                   <div className="group-hover:scale-105 transition-transform shadow-lg shadow-blue-500/10 rounded-xl overflow-hidden flex items-center justify-center">
+                                        <Image
+                                             src="/logo.png"
+                                             alt="ToolLok Logo"
+                                             width={32}
+                                             height={32}
+                                             className="w-8 h-8 object-cover"
+                                        />
                                    </div>
                                    <span className="text-xl font-extrabold tracking-tight text-white">
                                         Tool<span className="text-blue-400">Lok</span>

@@ -13,7 +13,7 @@ import PremiumShowcase from "@/components/sections/PremiumShowcase";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQSection from "@/components/sections/FAQSection";
-import Newsletter from "@/components/sections/Newsletter";
+//import Newsletter from "@/components/sections/Newsletter";
 
 // Data
 import { POPULAR_TOOLS, TRENDING_TOOLS, RECENT_TOOLS } from "@/constants";
@@ -97,8 +97,8 @@ export default function HomePage() {
 
       </div>
 
-      {/* 10. NEWSLETTER */}
-      <Newsletter />
+      {/* 10. NEWSLETTER 
+      <Newsletter /> */}
 
     </div>
   );
