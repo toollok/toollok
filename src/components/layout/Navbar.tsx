@@ -2,7 +2,7 @@
 import SearchModal from "@/components/ui/SearchModal";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, Menu, X, ChevronDown, Sparkles, Terminal } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban } from "lucide-react";
 
 export default function Navbar() {
      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function Navbar() {
                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
                     {/* Brand Logo */}
-                    <div className="flex items-center gap-8">
+                    <div className="flex items-center gap-6 lg:gap-8">
                          <Link href="/" className="flex items-center gap-2 group">
                               <div className="w-9 h-9 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
                                    <Terminal size={18} className="text-white font-bold" />
@@ -46,12 +46,16 @@ export default function Navbar() {
 
                          {/* Navigation Links */}
                          <nav className="hidden md:flex items-center gap-1">
+                              <Link href="/" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <Home size={15} /> Home
+                              </Link>
+
                               <div className="relative">
                                    <button
                                         onClick={() => setIsCategoryOpen(!isCategoryOpen)}
                                         className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors"
                                    >
-                                        Categories <ChevronDown size={14} className={`transition-transform duration-200 ${isCategoryOpen ? "rotate-180" : ""}`} />
+                                        <FolderKanban size={15} /> Categories <ChevronDown size={14} className={`transition-transform duration-200 ${isCategoryOpen ? "rotate-180" : ""}`} />
                                    </button>
 
                                    {/* Simple Category Dropdown Overlay */}
@@ -60,20 +64,21 @@ export default function Navbar() {
                                              className="absolute top-full left-0 mt-2 w-56 bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-2 z-50"
                                              onMouseLeave={() => setIsCategoryOpen(false)}
                                         >
-                                             <Link href="/categories/finance" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Financial Tools</Link>
-                                             <Link href="/categories/developer" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Developer Tools</Link>
+                                             <Link href="/categories/financial-tools" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Financial & Trading</Link>
+                                             <Link href="/categories/business-tools" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Business & Startup</Link>
+                                             <Link href="/categories/developer-tools" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Developer Tools</Link>
                                              <Link href="/categories/creator" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">Content Creator Tools</Link>
-                                             <Link href="/categories/ai" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">AI Utilities</Link>
                                              <Link href="/categories/seo" className="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg">SEO Tools</Link>
                                         </div>
                                    )}
                               </div>
 
-                              <Link href="/popular" className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
-                                   Popular Tools
+                              <Link href="/popular" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <Flame size={15} className="text-amber-400" /> Popular
                               </Link>
-                              <Link href="/premium" className="px-3 py-2 text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-amber-300 hover:opacity-80 transition-opacity flex items-center gap-1">
-                                   <Sparkles size={14} className="text-amber-400" /> Premium
+
+                              <Link href="/about" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <Info size={15} /> About
                               </Link>
                          </nav>
                     </div>
@@ -82,19 +87,12 @@ export default function Navbar() {
                     <div className="flex items-center gap-3">
                          <button
                               onClick={() => setIsSearchOpen(true)}
-                              className="hidden sm:flex items-center gap-2 bg-gray-900/80 hover:bg-gray-800 border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-400 transition-colors cursor-text outline-none"
+                              className="flex items-center gap-2 bg-gray-900/80 hover:bg-gray-800 border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-400 transition-colors cursor-text outline-none"
                          >
                               <Search size={14} />
-                              <span>Search 500+ tools...</span>
-                              <kbd className="bg-gray-800 text-gray-400 px-1.5 py-0.5 rounded text-[10px] font-mono">⌘K</kbd>
+                              <span className="hidden sm:inline">Search tools...</span>
+                              <kbd className="hidden sm:inline bg-gray-800 text-gray-400 px-1.5 py-0.5 rounded text-[10px] font-mono">⌘K</kbd>
                          </button>
-
-                         <Link href="/login" className="hidden sm:block text-sm font-medium text-gray-300 hover:text-white px-3 py-1.5 transition-colors">
-                              Log In
-                         </Link>
-                         <Link href="/signup" className="hidden sm:block bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors shadow-lg shadow-blue-600/20">
-                              Get Started
-                         </Link>
 
                          {/* Mobile Menu Toggle Button */}
                          <button
@@ -109,25 +107,26 @@ export default function Navbar() {
 
                {/* Mobile Drawer */}
                {isMobileMenuOpen && (
-                    <div className="md:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-                         <Link href="/categories/finance" className="block text-gray-300 text-sm font-medium py-2">Financial Tools</Link>
-                         <Link href="/categories/developer" className="block text-gray-300 text-sm font-medium py-2">Developer Tools</Link>
-                         <Link href="/categories/creator" className="block text-gray-300 text-sm font-medium py-2">Creator Tools</Link>
-                         <Link href="/premium" className="block text-purple-400 font-bold text-sm py-2">CodeMines Premium</Link>
-                         <div className="pt-2 border-t border-gray-800 flex flex-col gap-2">
-                              <Link href="/login" className="text-center text-gray-300 text-sm font-medium py-2">Log In</Link>
-                              <Link href="/signup" className="text-center bg-blue-600 text-white text-sm font-bold py-2 rounded-lg">Get Started</Link>
-                         </div>
-                    </div>
-               )}
-               {/* Mobile Drawer */}
-               {isMobileMenuOpen && (
-                    <div className="md:hidden bg-gray-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-                         {/* ... mobile menu links ... */}
+                    <div className="md:hidden bg-gray-900 border-b border-gray-800 px-4 pt-3 pb-6 space-y-2">
+                         <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">
+                              <Home size={16} /> Home
+                         </Link>
+                         <Link href="/popular" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-amber-400 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">
+                              <Flame size={16} /> Popular Tools
+                         </Link>
+                         <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">
+                              <Info size={16} /> About Us
+                         </Link>
+
+                         <div className="pt-2 pb-1 text-[10px] uppercase font-bold text-gray-500 tracking-wider px-3">Categories</div>
+                         <Link href="/categories/financial-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">Financial & Trading Tools</Link>
+                         <Link href="/categories/business-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">Business & Startup Tools</Link>
+                         <Link href="/categories/developer-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">Developer Tools</Link>
+                         <Link href="/categories/creator" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-2 px-3 rounded-lg hover:bg-gray-800">Content Creator Tools</Link>
                     </div>
                )}
 
-               {/* Put the Modal right here at the bottom! */}
+               {/* Command+K Search Modal */}
                <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
           </header>
      );

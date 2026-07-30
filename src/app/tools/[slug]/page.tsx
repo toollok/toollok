@@ -1,30 +1,13 @@
-import { MASTER_TOOLS_LIST } from "@/constants";
 import { notFound } from "next/navigation";
-import { BookOpen, Info } from "lucide-react";
-import { use } from "react";
+import { MASTER_TOOLS_LIST as TOOLS_LIST } from "@/constants";
+import AdSlot from "@/components/ui/AdSlot";
+import Link from "next/link";
+import { ArrowLeft, ShieldCheck, Zap } from "lucide-react";
 import dynamic from "next/dynamic";
-import { Metadata } from "next";
-import { generateToolMetadata, generateToolSchema } from "@/lib/seo";
+import ToolSkeleton from "@/components/ui/ToolSkeleton";
 
-
-// 1. Sleek, Geometric Skeleton Loader (Strictly avoiding rotational effects)
-const ToolSkeleton = () => (
-     <div
-          className="w-full min-h-[400px] bg-gray-900/40 border border-gray-800 rounded-3xl p-8 flex flex-col items-center justify-center shadow-inner"
-          aria-busy="true"
-          aria-label="Loading tool interface..."
-     >
-          <div className="flex gap-3 mb-6">
-               <div className="w-3 h-3 bg-blue-500/80 rounded-sm animate-pulse" style={{ animationDelay: '0ms' }}></div>
-               <div className="w-3 h-3 bg-cyan-400/80 rounded-sm animate-pulse" style={{ animationDelay: '150ms' }}></div>
-               <div className="w-3 h-3 bg-emerald-400/80 rounded-sm animate-pulse" style={{ animationDelay: '300ms' }}></div>
-          </div>
-          <p className="text-xs text-gray-500 font-mono tracking-widest uppercase">Initializing Interface</p>
-     </div>
-);
-
-// 2. Dynamic Imports Dictionary (Creates automated code-splitting chunks)
-const ToolComponents: Record<string, React.ComponentType> = {
+// Tool component dictionary mapping slugs to dynamic imports
+const toolComponents: Record<string, any> = {
      "css-animation-builder": dynamic(() => import("@/components/tools/CssAnimationBuilder"), { loading: () => <ToolSkeleton /> }),
      "json-formatter-validator": dynamic(() => import("@/components/tools/JsonFormatterValidator"), { loading: () => <ToolSkeleton /> }),
      "api-mock-server": dynamic(() => import("@/components/tools/ApiMockServer"), { loading: () => <ToolSkeleton /> }),
@@ -43,100 +26,92 @@ const ToolComponents: Record<string, React.ComponentType> = {
      "short-video-repurposer": dynamic(() => import("@/components/tools/ShortVideoRepurposer"), { loading: () => <ToolSkeleton /> }),
      "conversion-funnel-simulator": dynamic(() => import("@/components/tools/ConversionFunnelSimulator"), { loading: () => <ToolSkeleton /> }),
      "predictive-churn-analyzer": dynamic(() => import("@/components/tools/PredictiveChurnAnalyzer"), { loading: () => <ToolSkeleton /> }),
+     "meta-tags-generator": dynamic(() => import("@/components/tools/MetaTagsGenerator"), { loading: () => <ToolSkeleton /> }),
+     "invoice-generator": dynamic(() => import("@/components/tools/InvoiceGenerator"), { loading: () => <ToolSkeleton /> }),
+     "b2b-lead-scraper": dynamic(() => import("@/components/tools/B2BLeadScraper"), { loading: () => <ToolSkeleton /> }),
+     "saas-pricing-simulator": dynamic(() => import("@/components/tools/SaaSPricingSimulator"), { loading: () => <ToolSkeleton /> }),
+     "ai-pitch-deck-auditor": dynamic(() => import("@/components/tools/AiPitchDeckAuditor"), { loading: () => <ToolSkeleton /> }),
+     "legal-contract-scanner": dynamic(() => import("@/components/tools/LegalContractScanner"), { loading: () => <ToolSkeleton /> }),
+
 };
 
-// 3. Dynamic Server-Side Metadata Generation
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-     const { slug } = await params;
-     const tool = MASTER_TOOLS_LIST.find(t => t.slug === `/tools/${slug}`);
-
-     if (!tool) {
-          return { title: "Tool Not Found | CodeMines" };
-     }
-
-     return generateToolMetadata(tool);
+interface PageProps {
+     params: Promise<{
+          slug: string;
+     }>;
 }
 
-// 4. The Main Page Component
-export default function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
-     // Unwrap the params Promise safely for Next.js 15
-     const { slug } = use(params);
+export default async function ToolDetailPage({ params }: PageProps) {
+     const resolvedParams = await params;
+     const rawSlug = resolvedParams?.slug || "";
+     const slug = typeof rawSlug === "string" ? rawSlug : Array.isArray(rawSlug) ? rawSlug[0] : "";
 
-     const tool = MASTER_TOOLS_LIST.find(t => t.slug === `/tools/${slug}`);
-
-     if (!tool) {
-          return notFound();
+     if (!slug) {
+          notFound();
      }
 
-     // Resolve the specific component from the dictionary
-     // Note: We remove the `/tools/` prefix from the DB slug to match our dictionary keys
-     const componentKey = tool.slug.replace('/tools/', '');
-     const ActiveToolComponent = ToolComponents[componentKey];
+     const tool = TOOLS_LIST.find((t) => t.slug === `/tools/${slug}` || t.slug === slug || t.slug?.endsWith(`/${slug}`));
 
-     // Generate the JSON-LD Schema
-     const jsonLd = generateToolSchema(tool);
+     if (!tool) {
+          notFound();
+     }
+
+     const ToolComponent = toolComponents[slug];
 
      return (
-          <div className="w-full min-h-screen bg-[#090d16] pt-24 pb-20 px-4">
+          <main className="min-h-screen bg-[#090d16] text-white flex flex-col items-center px-4 py-8">
+               <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
 
-               {/* Hidden SEO Schema Injection */}
-               <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-               />
+                    {/* Back Navigation & Breadcrumb */}
+                    <div className="flex items-center justify-between">
+                         <Link
+                              href="/"
+                              className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3.5 py-2 rounded-xl"
+                         >
+                              <ArrowLeft size={14} /> Back to All Tools
+                         </Link>
 
-               <div className="max-w-7xl mx-auto flex flex-col gap-10">
-
-                    {/* Global Tool Header */}
-                    <div className="text-center max-w-3xl mx-auto mt-8 mb-4">
-                         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                              {tool.name}
-                         </h1>
-                         <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 inline-flex items-start gap-4 text-left shadow-lg">
-                              <Info className="text-blue-400 shrink-0 mt-1" size={24} />
-                              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                                   {tool.description}
-                              </p>
+                         <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-xl">
+                              <ShieldCheck size={14} />
+                              <span>Verified Secure Tool</span>
                          </div>
                     </div>
 
-                    {/* The Interactive Tool Injection Zone */}
-                    <div className="w-full relative z-10">
-                         {ActiveToolComponent ? <ActiveToolComponent /> : (
-                              <div className="text-center p-10 bg-rose-500/10 border border-rose-500/20 rounded-2xl text-rose-400">
-                                   Component not found for this slug. Please verify the component dictionary map.
-                              </div>
+                    {/* TOP AD BANNER */}
+                    <AdSlot adSlot="tool-detail-top-banner" format="horizontal" minHeight="90px" className="w-full my-2" />
+
+                    {/* Dynamic Tool Component Container */}
+                    <div className="w-full bg-[#0c121e]/50 border border-gray-800/80 rounded-3xl p-4 md:p-8 shadow-2xl backdrop-blur-sm">
+                         {ToolComponent ? (
+                              <ToolComponent />
+                         ) : (
+                              <div className="py-12 text-center text-gray-400">Tool component loading or under maintenance.</div>
                          )}
                     </div>
 
-                    {/* Dynamic "How to Use" Section */}
-                    <div className="max-w-4xl mx-auto w-full bg-gray-900/40 border border-gray-800 rounded-3xl p-8 md:p-10 shadow-xl mt-12">
-                         <div className="flex items-center gap-3 mb-8">
-                              <div className="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 border border-blue-500/20">
-                                   <BookOpen size={20} />
-                              </div>
-                              <h2 className="text-2xl font-bold text-white">How to use the {tool.name}</h2>
+                    {/* How to Use Section */}
+                    {tool.howToUse && tool.howToUse.length > 0 && (
+                         <div className="w-full bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col gap-4">
+                              <h3 className="text-white font-bold text-base flex items-center gap-2">
+                                   <Zap size={18} className="text-cyan-400" /> How to use {tool.name}
+                              </h3>
+                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-300">
+                                   {tool.howToUse.map((step, idx) => (
+                                        <li key={idx} className="bg-gray-950/60 border border-gray-800/60 p-3.5 rounded-2xl flex items-start gap-2.5">
+                                             <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                                                  {idx + 1}
+                                             </span>
+                                             <span>{step}</span>
+                                        </li>
+                                   ))}
+                              </ul>
                          </div>
+                    )}
 
-                         <div className="space-y-6">
-                              {tool.howToUse ? (
-                                   tool.howToUse.map((step, index) => (
-                                        <div key={index} className="flex gap-4">
-                                             <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-bold text-gray-400">
-                                                  {index + 1}
-                                             </div>
-                                             <p className="text-gray-300 pt-1 leading-relaxed">{step}</p>
-                                        </div>
-                                   ))
-                              ) : (
-                                   <p className="text-gray-500 italic border-l-2 border-gray-800 pl-4">
-                                        Step-by-step instructions for this tool will be added shortly. The interface is designed to be intuitive and self-explanatory.
-                                   </p>
-                              )}
-                         </div>
-                    </div>
+                    {/* BOTTOM IN-FEED AD BANNER */}
+                    <AdSlot adSlot="tool-detail-bottom-fluid" format="fluid" className="w-full my-4" />
 
                </div>
-          </div>
+          </main>
      );
 }

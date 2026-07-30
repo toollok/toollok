@@ -360,7 +360,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
 
      // 4. Business Tools
      {
-          id: "biz-1",
+          id: "biz-0",
           name: "SaaS Metrics & Unit Economics Calculator",
           description: "Calculate MRR, ARR, LTV, CAC, and unit economics efficiency ratios instantly in your browser.",
           category: "business-tools",
@@ -375,40 +375,78 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           ]
      },
      {
+          id: "biz-1",
+          name: "Professional PDF Invoice & Estimate Generator",
+          description: "Create, customize, and export professional watermark-free PDF invoices instantly.",
+          category: "business-tools",
+          slug: "/tools/invoice-generator",
+          iconName: "FileText",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Input your company name, sender details, and client billing info in the left editor panel.",
+               "Customize invoice number, issue date, due date, and currency symbol.",
+               "Add and edit line items with automatic subtotal, tax, and discount calculations.",
+               "Click 'Print / Download PDF' to export a clean, watermark-free PDF document using your browser print dialog."
+          ]
+     },
+     {
           id: "biz-2",
-          name: "B2B Niche Directory & Lead Data Scraper",
-          description: "Targeted cloud crawler aggregating verified corporate emails, social profiles, and decision-maker contact data.",
+          name: "B2B Lead Directory & Prospect Finder",
+          description: "Search, filter, and export targeted B2B company leads and directory profiles.",
           category: "business-tools",
           slug: "/tools/b2b-lead-scraper",
-          iconName: "Users",
-          tier: "premium"
+          iconName: "Building",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Search companies by name or filter results instantly by industry and employee size.",
+               "Bookmark high-value target prospects by clicking the bookmark icon.",
+               "Click 'Export CSV' to download either your filtered list or your saved bookmark shortlist formatted for your CRM."
+          ]
      },
      {
           id: "biz-3",
           name: "SaaS Tier Pricing & Margin Simulator",
-          description: "Model profitable pricing structures based on infrastructure overheads, API costs, and gross margins.",
+          description: "Evaluate pricing models, server expenses, COGS, and gross margin profitability.",
           category: "business-tools",
           slug: "/tools/saas-pricing-simulator",
-          iconName: "DollarSign",
-          tier: "free"
+          iconName: "BarChart3",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Input your monthly subscription price tier and expected active subscriber count.",
+               "Configure per-user server hosting, AI/API usage, customer support, and payment gateway fees.",
+               "Review the real-time calculated Gross Margin percentage and monthly net profit projections.",
+               "Optimize your pricing structure to maintain a healthy software gross margin of 75% or higher."
+          ]
      },
      {
           id: "biz-4",
           name: "AI Pitch Deck & Business Plan Auditor",
-          description: "Upload pitch decks for automated VC-grade evaluations covering TAM/SAM/SOM logic and risk factors.",
+          description: "Evaluate pitch decks against venture capital rubrics, check for red flags, and get scoring.",
           category: "business-tools",
           slug: "/tools/ai-pitch-deck-auditor",
-          iconName: "Briefcase",
-          tier: "freemium"
+          iconName: "Sparkles",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Select your startup's target industry from the dropdown menu.",
+               "Paste your elevator pitch, executive summary, or pitch deck highlights into the text area.",
+               "Review your overall VC readiness score and breakdown across Market Size, Monetization, and Defensibility.",
+               "Address any detected investor red flags and copy the audit report for your fundraising prep."
+          ]
      },
      {
           id: "biz-5",
           name: "Legal Contract AI Risk Scanner",
-          description: "Automated scanner flagging unfavorable clauses, liability traps, and non-standard terms in NDAs and vendor contracts.",
+          description: "Scan agreements for predatory clauses, liability traps, IP risks, and negotiation suggestions.",
           category: "business-tools",
           slug: "/tools/legal-contract-scanner",
-          iconName: "FileCheck",
-          tier: "premium"
+          iconName: "Scale",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Paste your freelance contract, NDA, or service agreement text into the scanner.",
+               "Review your overall Contract Safety Score and identified risk flags (Indemnity, IP, Non-Compete).",
+               "Read the plain-English counter-suggestions to prepare your negotiation terms.",
+               "Copy the complete audit report for your review notes."
+          ]
      },
 
      // 5. AI Tools
@@ -462,6 +500,21 @@ export const MASTER_TOOLS_LIST: Tool[] = [
      },
 
      // 6. Productivity Tools
+     {
+          id: "seo-0",
+          name: "Meta Tags & Open Graph Generator",
+          description: "Generate optimized SEO meta tags and social sharing cards with real-time visual previews.",
+          category: "seo-tools",
+          slug: "/tools/meta-tags-generator",
+          iconName: "Code",
+          tier: "free", // 🟢 100% Free
+          howToUse: [
+               "Input your page title, meta description, canonical URL, and social share image URL.",
+               "Switch between Google Search Preview and Facebook/LinkedIn OG Card previews to inspect how your link will appear.",
+               "Check character count warnings to ensure your title and description do not truncate.",
+               "Click 'Copy Code' to grab the production-ready HTML meta tags."
+          ]
+     },
      {
           id: "pro-1",
           name: "World Clock & Time Zone Overlap Visualizer",
