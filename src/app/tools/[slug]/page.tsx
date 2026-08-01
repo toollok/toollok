@@ -32,6 +32,11 @@ const toolComponents: Record<string, any> = {
      "saas-pricing-simulator": dynamic(() => import("@/components/tools/SaaSPricingSimulator"), { loading: () => <ToolSkeleton /> }),
      "ai-pitch-deck-auditor": dynamic(() => import("@/components/tools/AiPitchDeckAuditor"), { loading: () => <ToolSkeleton /> }),
      "legal-contract-scanner": dynamic(() => import("@/components/tools/LegalContractScanner"), { loading: () => <ToolSkeleton /> }),
+     "prompt-optimizer": dynamic(() => import("@/components/tools/PromptOptimizer"), { loading: () => <ToolSkeleton /> }),
+     "ai-text-humanizer": dynamic(() => import("@/components/tools/AiTextHumanizer"), { loading: () => <ToolSkeleton /> }),
+     "autonomous-research-agent": dynamic(() => import("@/components/tools/AutonomousResearchAgent"), { loading: () => <ToolSkeleton /> }),
+     "ai-model-cost-calculator": dynamic(() => import("@/components/tools/AiModelCostCalculator"), { loading: () => <ToolSkeleton /> }),
+     "prompt-security-tester": dynamic(() => import("@/components/tools/PromptSecurityTester"), { loading: () => <ToolSkeleton /> }),
 
 };
 

@@ -452,23 +452,35 @@ export const MASTER_TOOLS_LIST: Tool[] = [
      // 5. AI Tools
      {
           id: "ai-1",
-          name: "Advanced Prompt Optimizer & Framework Rewriter",
-          description: "Convert raw text into structured system prompts using Few-Shot and Chain-of-Thought techniques.",
+          name: "Advanced Prompt Optimizer",
+          description: "Convert lazy prompts into highly structured, model-optimized system instructions using professional frameworks.",
           category: "ai-tools",
-          slug: "/tools/prompt-optimizer-rewriter",
-          iconName: "Sparkles",
-          tier: "free",
-          isPopular: true
+          slug: "/tools/prompt-optimizer", // Note: Verify this matches your URL structure!
+          iconName: "Wand2",
+          tier: "free", // 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Select the target AI model (GPT-4, Claude 3, Gemini) to apply model-specific instructions.",
+               "Choose an optimization framework (CoT, RTF, XML) based on how complex your task is.",
+               "Type or paste your basic, lazy prompt into the text box.",
+               "Click 'Optimize Prompt' and copy the resulting professional system instruction."
+          ]
      },
      {
           id: "ai-2",
           name: "AI Text Humanizer & Tone Matcher",
-          description: "Rewrite artificial text into natural human copy tuned for specific domain voice guidelines.",
+          description: "Strip rigid AI patterns, purge robotic buzzwords, and rewrite text into natural human cadence.",
           category: "ai-tools",
           slug: "/tools/ai-text-humanizer",
-          iconName: "Bot",
-          tier: "freemium",
-          isTrending: true
+          iconName: "UserCheck",
+          tier: "free", // 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Choose your desired tone preset (Casual, Professional, Technical, or Academic).",
+               "Select your humanization depth (Light Polish vs. Deep Humanize).",
+               "Paste your rigid AI-generated text into the input box.",
+               "Click 'Humanize Text Now' to instantly clean up phrasing and copy the natural result."
+          ]
      },
      {
           id: "ai-3",
@@ -478,16 +490,29 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/ai-model-cost-calculator",
           iconName: "Calculator",
           tier: "free",
-          isRecent: true
+          badgeText: "Free",
+          howToUse: [
+               "Paste a sample prompt into the text box to estimate input token volume.",
+               "Adjust the sliders to set your projected monthly API request volume and response output lengths.",
+               "Toggle between 'Cheapest' and 'Fastest' to rank LLMs by cost efficiency or response latency.",
+               "Review the context window boundaries and estimated monthly budget."
+          ]
      },
      {
           id: "ai-4",
           name: "Autonomous Research Agent Sandbox",
-          description: "Multi-step web-browsing agent that compiles comprehensive research dossiers with verified live citations.",
+          description: "Multi-step agent that takes a deep research query, synthesizes advanced search operators (Google Dorks), and maps structured methodology.",
           category: "ai-tools",
           slug: "/tools/autonomous-research-agent",
           iconName: "Globe",
-          tier: "premium"
+          tier: "free", // Updated to 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Enter your core research topic or broad question into the input field.",
+               "Click 'Architect Research Plan' to engage the local synthesis engine.",
+               "Review the generated Advanced Search Queries (Google Dorks) designed to bypass surface-level blogs and find academic/institutional PDFs.",
+               "Follow the suggested Execution Methodology and copy the entire plan to your clipboard."
+          ]
      },
      {
           id: "ai-5",
@@ -496,7 +521,14 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "ai-tools",
           slug: "/tools/prompt-security-tester",
           iconName: "ShieldAlert",
-          tier: "premium"
+          tier: "free", // Updated to 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Select the active red-team attack vectors you want to simulate (Jailbreaks, System Extraction, Output Hijacking).",
+               "Paste your production system prompt into the terminal text box.",
+               "Click 'Run Red-Team Security Audit' to test boundary resilience and detect missing refusal rules.",
+               "Review the risk findings and copy the auto-hardened system prompt patch directly to your codebase."
+          ]
      },
 
      // 6. Productivity Tools
