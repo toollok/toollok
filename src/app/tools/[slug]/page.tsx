@@ -37,6 +37,14 @@ const toolComponents: Record<string, any> = {
      "autonomous-research-agent": dynamic(() => import("@/components/tools/AutonomousResearchAgent"), { loading: () => <ToolSkeleton /> }),
      "ai-model-cost-calculator": dynamic(() => import("@/components/tools/AiModelCostCalculator"), { loading: () => <ToolSkeleton /> }),
      "prompt-security-tester": dynamic(() => import("@/components/tools/PromptSecurityTester"), { loading: () => <ToolSkeleton /> }),
+     "world-clock-timezone-visualizer": dynamic(() => import("@/components/tools/WorldClockVisualizer"), { loading: () => <ToolSkeleton /> }),
+     "markdown-publishing-studio": dynamic(() => import("@/components/tools/MarkdownStudio"), { loading: () => <ToolSkeleton /> }),
+     "pomodoro-focus-engine": dynamic(() => import("@/components/tools/PomodoroFocusEngine"), { loading: () => <ToolSkeleton /> }),
+     "meeting-actionizer": dynamic(() => import("@/components/tools/MeetingActionizer"), { loading: () => <ToolSkeleton /> }),
+     "automated-sop-builder": dynamic(() => import("@/components/tools/AutomatedSopBuilder"), { loading: () => <ToolSkeleton /> }),
+     "schema-markup-generator": dynamic(() => import("@/components/tools/SchemaMarkupGenerator"), { loading: () => <ToolSkeleton /> }),
+     "serp-preview-optimizer": dynamic(() => import("@/components/tools/SerpPreviewOptimizer"), { loading: () => <ToolSkeleton /> }),
+     "robots-sitemap-inspector": dynamic(() => import("@/components/tools/RobotsSitemapInspector"), { loading: () => <ToolSkeleton /> }),
 
 };
 

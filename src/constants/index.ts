@@ -550,30 +550,51 @@ export const MASTER_TOOLS_LIST: Tool[] = [
      {
           id: "pro-1",
           name: "World Clock & Time Zone Overlap Visualizer",
-          description: "Drag-and-drop workspace map for scheduling across global distributed engineering teams.",
+          description: "Interactive timeline scrubber for scheduling across global distributed engineering teams.",
           category: "productivity-tools",
           slug: "/tools/world-clock-timezone-visualizer",
           iconName: "Clock",
-          tier: "free",
-          isRecent: true
+          tier: "free", // 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Use the dropdown menu to add your remote team members' time zones to the Active Workspaces list.",
+               "Drag the time slider to scrub through your local 24-hour day.",
+               "Watch the projected global overlap dashboard instantly calculate the exact local time for all selected cities.",
+               "Use the color codes (Green for Work, Yellow for Fringe, Red for Sleep) to pinpoint the least disruptive time to schedule a meeting."
+          ]
      },
      {
           id: "pro-2",
           name: "Markdown to PDF/HTML Publishing Studio",
-          description: "In-browser Markdown editor featuring real-time preview, LaTeX equation formatting, and clean PDF rendering.",
+          description: "In-browser Markdown editor featuring real-time preview, HTML export, and clean PDF rendering.",
           category: "productivity-tools",
           slug: "/tools/markdown-publishing-studio",
           iconName: "Edit3",
-          tier: "free"
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Type your standard Markdown text into the left editor pane (supports headers, lists, code blocks, and bold/italics).",
+               "Watch your document instantly render as clean, readable text in the live preview pane on the right.",
+               "Your work is auto-saved locally to your browser, so you can close the tab and return later without losing data.",
+               "Click 'Export PDF' (or press Ctrl+P) to generate a clean, watermark-free document ready for publishing.",
+               "Click 'Copy HTML' to copy the raw formatted HTML code directly to your clipboard."
+          ]
      },
      {
           id: "pro-3",
           name: "AI Context-Aware Meeting Actionizer",
-          description: "Transform meeting audio recordings into structured Jira tickets, decision logs, and follow-up emails.",
+          description: "Transform raw meeting audio transcripts into structured Jira tickets, decision logs, and follow-up emails.",
           category: "productivity-tools",
           slug: "/tools/meeting-actionizer",
           iconName: "CheckSquare",
-          tier: "premium"
+          tier: "free", // free Premium Tool
+          badgeText: "free",
+          howToUse: [
+               "Paste your raw Zoom, Teams, or Google Meet transcript into the input box.",
+               "Click 'Extract Action Items' to engage the AI parsing engine.",
+               "Navigate the generated tabs to review your Executive Summary, identified Action Items, and formatted Jira Epics/Tasks.",
+               "Use the integration buttons to instantly sync your data to Notion, Jira, or draft an email in your default client."
+          ]
      },
      {
           id: "pro-4",
@@ -582,46 +603,83 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "productivity-tools",
           slug: "/tools/pomodoro-focus-engine",
           iconName: "Zap",
-          tier: "free"
+          tier: "free", // 🟢 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Select your focus cycle (25min Deep Focus, 5min Short Break, or 15min Long Break).",
+               "Click the 'Start' button to begin the animated countdown engine.",
+               "Toggle the 'Deep Neural Brown Noise' switch in the Sound Studio to block out background distractions using local synthesized audio.",
+               "Type your current goals into the Focus Session Ledger and check them off as you complete them."
+          ]
      },
      {
           id: "pro-5",
           name: "Automated SOP & Process Builder",
-          description: "Generate standardized operating procedure documents and workflow checklists from plain speech audio.",
+          description: "Generate formatted, printable Standard Operating Procedures (SOPs) and checklists from plain text descriptions.",
           category: "productivity-tools",
           slug: "/tools/automated-sop-builder",
           iconName: "List",
-          tier: "freemium"
+          tier: "free", // 🟢 Updated to 100% Free
+          badgeText: "Free",
+          howToUse: [
+               "Fill out the document metadata (Title, Department, Author) to generate the official SOP header.",
+               "Type your process in plain english into the input box. Use words like 'require' for prerequisites, and 'error' for troubleshooting.",
+               "Use [Brackets] to highlight variables that need to be filled in by the employee.",
+               "Click 'Generate' to automatically structure the text into a professional, printable document.",
+               "Click 'Export PDF' (or press Ctrl+P) to print a clean, ink-friendly version with checkable boxes."
+          ]
      },
 
      // 7. SEO Tools
      {
           id: "seo-1",
           name: "Schema Markup (JSON-LD) Generator & Tester",
-          description: "Form builder for creating validated Google-compliant structured data for Articles, FAQs, and Products.",
+          description: "Form builder for creating validated Google-compliant structured data for Articles, FAQs, Products, Organizations, and Local Businesses.",
           category: "seo-tools",
           slug: "/tools/schema-markup-generator",
           iconName: "Code",
           tier: "free",
-          isPopular: true
+          badgeText: "Free",
+          howToUse: [
+               "Select the desired Schema type (Article, Product, FAQ Page, Organization, or Local Business).",
+               "Fill in the structured data fields in the left-hand form editor.",
+               "Click 'Copy JSON-LD Code Snippet' to grab the production-ready script tag.",
+               "Click 'Test on Google' to validate your snippet directly in Google's official Rich Results testing tool."
+          ]
      },
      {
           id: "seo-2",
           name: "SERP Preview & Meta Tag Optimizer",
-          description: "Simulate mobile and desktop search result listings while testing pixel-width truncation limits.",
+          description: "Simulate exactly how your page titles, descriptions, and Open Graph images will appear on Google and social media.",
           category: "seo-tools",
           slug: "/tools/serp-preview-optimizer",
           iconName: "Search",
-          tier: "free"
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Enter your target URL, Page Title, and Meta Description.",
+               "Watch the progress bars carefully. The tool uses pixel-width heuristics to warn you before Google truncates your text.",
+               "Toggle between Desktop and Mobile views to see how Google alters your layout and character limits.",
+               "Paste an image URL and click the 'Social Cards' tab to verify your Open Graph/Twitter card preview.",
+               "Navigate to the 'HTML Tags' tab to instantly copy your production-ready <meta> tags for your <head> section."
+          ]
      },
      {
           id: "seo-3",
           name: "Robots.txt & Sitemap Health Inspector",
-          description: "Inspect robots.txt crawl directives and XML sitemaps to catch indexation bugs before search crawlers do.",
+          description: "Simulate search engine crawlers against your robots.txt rules and validate your XML sitemaps for structural SEO flaws.",
           category: "seo-tools",
-          slug: "/tools/sitemap-health-inspector",
-          iconName: "CheckCircle",
-          tier: "free"
+          slug: "/tools/robots-sitemap-inspector",
+          iconName: "ShieldAlert",
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Select the 'Robots.txt Simulator' tab to test indexation rules.",
+               "Paste your robots.txt content, enter a target URL, and select a User-Agent (e.g., Googlebot).",
+               "Click 'Run Simulation' to see exactly which rule triggers a block or an allow.",
+               "Switch to the 'Sitemap XML Auditor' tab and paste your raw XML sitemap.",
+               "The tool will automatically validate the XML syntax and flag non-HTTPS links, deep folder nesting, and URL parameters."
+          ]
      },
      {
           id: "seo-4",
