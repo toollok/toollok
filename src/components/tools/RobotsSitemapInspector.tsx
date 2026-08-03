@@ -188,8 +188,9 @@ export default function RobotsSitemapInspector() {
           const blockedCount = urls.filter(u => u.isBlocked).length;
 
           // Helper to render tree visually
-          const renderTree = (node: any, depth = 0): JSX.Element[] => {
-               let elements: JSX.Element[] = [];
+          const renderTree = (node: any, depth = 0): React.ReactNode[] => {
+               let elements: React.ReactNode[] = [];
+               // ...
                Object.keys(node).forEach(key => {
                     const child = node[key];
                     elements.push(
