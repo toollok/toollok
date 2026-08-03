@@ -67,7 +67,7 @@ export default function PomodoroFocusEngine() {
           const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
-          osc.type = "bell" as any || "sine";
+          osc.type = "sine";
           osc.frequency.setValueAtTime(880, ctx.currentTime);
           osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.5);
           gain.gain.setValueAtTime(0.2, ctx.currentTime);
