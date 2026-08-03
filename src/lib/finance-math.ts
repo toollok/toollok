@@ -15,6 +15,17 @@ export interface OptionGreeks {
 }
 
 /**
+ * Strategy Leg Interface for Payoff Visualizer
+ */
+export interface PayoffLeg {
+     position: PositionType;
+     type: OptionType;
+     strike: number;
+     premium: number;
+     quantity: number;
+}
+
+/**
  * Standard Normal Cumulative Distribution Function (CDF)
  */
 export function normalCDF(x: number): number {
