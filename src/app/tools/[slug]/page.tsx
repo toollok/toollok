@@ -45,6 +45,13 @@ const toolComponents: Record<string, any> = {
      "schema-markup-generator": dynamic(() => import("@/components/tools/SchemaMarkupGenerator"), { loading: () => <ToolSkeleton /> }),
      "serp-preview-optimizer": dynamic(() => import("@/components/tools/SerpPreviewOptimizer"), { loading: () => <ToolSkeleton /> }),
      "robots-sitemap-inspector": dynamic(() => import("@/components/tools/RobotsSitemapInspector"), { loading: () => <ToolSkeleton /> }),
+     "content-cluster-architect": dynamic(() => import("@/components/tools/ContentClusterArchitect"), { loading: () => <ToolSkeleton /> }),
+     "internal-link-visualizer": dynamic(() => import("@/components/tools/InternalLinkVisualizer"), { loading: () => <ToolSkeleton /> }),
+     "browser-pii-scrubber": dynamic(() => import("@/components/tools/BrowserPiiScrubber"), { loading: () => <ToolSkeleton /> }),
+     "image-exif-stripper": dynamic(() => import("@/components/tools/ImageExifStripper"), { loading: () => <ToolSkeleton /> }),
+     "local-wasm-llm-chat": dynamic(() => import("@/components/tools/LocalWasmLlmChat"), { loading: () => <ToolSkeleton /> }),
+     "password-entropy-analyzer": dynamic(() => import("@/components/tools/PasswordEntropyAnalyzer"), { loading: () => <ToolSkeleton /> }),
+     "disposable-endpoint-tester": dynamic(() => import("@/components/tools/DisposableEndpointTester"), { loading: () => <ToolSkeleton /> }),
 
 };
 

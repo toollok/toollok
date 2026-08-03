@@ -684,69 +684,121 @@ export const MASTER_TOOLS_LIST: Tool[] = [
      {
           id: "seo-4",
           name: "Programmatic SEO Content Cluster Architect",
-          description: "Map out complete hub-and-spoke content architectures around target keywords for automated publishing.",
+          description: "Generate complete hub-and-spoke SEO content strategies, including internal linking maps, URL structures, and search intent categorizations.",
           category: "seo-tools",
           slug: "/tools/content-cluster-architect",
-          iconName: "Layers",
-          tier: "premium"
+          iconName: "Network",
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Enter a core niche keyword (e.g., 'CRM Software' or 'Keto Diet').",
+               "Optionally define a target audience (e.g., 'Small Business').",
+               "Click Generate to map out a complete Hub and Spoke architecture.",
+               "Use the Visual Map tab to see how the pages connect, and the Data Table to view URLs and Search Intent.",
+               "Click the Export button to download a CSV file perfectly formatted for WordPress WP All Import or Webflow CMS."
+          ]
      },
      {
           id: "seo-5",
           name: "AI Internal Link Graph Visualizer",
-          description: "Crawl domains to construct visual internal link connectivity maps and identify orphan pages.",
+          description: "Map internal link connections on an interactive canvas node graph, isolate orphan pages, and evaluate internal PageRank flow.",
           category: "seo-tools",
           slug: "/tools/internal-link-visualizer",
-          iconName: "Share2",
-          tier: "freemium"
+          iconName: "Network",
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Type your target website URL into the input field.",
+               "Select your crawl depth limit (1 to 3 clicks deep).",
+               "Click 'Analyze Link Architecture' to render the visual node network graph.",
+               "Inspect orphan (unlinked) pages highlighted in red, and click nodes to view incoming and outgoing link flows."
+          ]
      },
 
      // 8. Privacy Tools
      {
-          id: "pri-1",
+          id: "privacy-1",
           name: "Browser-Side PII Data Scrubber",
-          description: "Strip names, phone numbers, credit cards, and API keys from raw text completely offline using local regex engines.",
+          description: "Strip names, phone numbers, credit cards, SSNs, and API keys from text before pasting into public AI platforms. 100% local processing.",
           category: "privacy-tools",
-          slug: "/tools/pii-data-scrubber",
-          iconName: "Shield",
+          slug: "/tools/browser-pii-scrubber",
+          iconName: "ShieldCheck",
           tier: "free",
-          isPopular: true
+          badgeText: "Free",
+          howToUse: [
+               "Paste your raw data, logs, or code into the Input Payload area.",
+               "Toggle the specific PII rules (Emails, Phones, API Keys, IPs) you want to scrub.",
+               "Customize the replacement token if desired (default is [REDACTED]).",
+               "Watch the Safe Output box highlight exactly what was caught by the local regex engine.",
+               "Click 'Copy Safe Output' to grab the sanitized payload to safely paste into ChatGPT or Claude."
+          ]
      },
      {
-          id: "pri-2",
+          id: "privacy-2",
           name: "Image EXIF & Metadata Stripper",
-          description: "Remove GPS coordinates, camera hardware details, and timestamps from photos via WebAssembly.",
+          description: "Remove hidden camera details, GPS coordinates, and timestamps from your photos entirely within your browser.",
           category: "privacy-tools",
-          slug: "/tools/exif-metadata-stripper",
-          iconName: "Image",
+          slug: "/tools/image-exif-stripper",
+          iconName: "Camera",
           tier: "free",
-          isRecent: true
+          badgeText: "Free",
+          howToUse: [
+               "Drag and drop a photo (JPEG, PNG, WebP) into the upload zone.",
+               "The tool will instantly parse the file's binary to detect EXIF data, GPS coordinates, and Camera/Device info.",
+               "The image is immediately redrawn on a secure HTML5 Canvas, completely severing all metadata from the visual pixels.",
+               "Review the 'Cleaned File' panel and click 'Download Clean Image' to save your safe, metadata-free photo.",
+               "Everything happens entirely offline. Your photo never leaves your device."
+          ]
      },
      {
-          id: "pri-3",
-          name: "Local WebAssembly LLM Chat Interface",
-          description: "Run small quantized AI models directly inside your browser via WebGPU with zero network calls.",
+          id: "privacy-3",
+          name: "Local WebAssembly LLM Chat",
+          description: "Run private, localized Language Models directly in your browser tab. Includes simulated local document RAG and WebGPU hardware monitoring.",
           category: "privacy-tools",
           slug: "/tools/local-wasm-llm-chat",
           iconName: "Cpu",
-          tier: "premium"
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Select a local model architecture from the WebGPU Engine Config panel.",
+               "Click 'Download Weights & Load Engine' to simulate moving the model into your browser's VRAM.",
+               "Upload text or markdown files into the Local Vector Store to enable local RAG (Retrieval-Augmented Generation).",
+               "Ask a question in the chat box and watch the model stream a response at over 40 tokens/sec, totally offline!"
+          ]
      },
      {
-          id: "pri-4",
+          id: "privacy-4",
           name: "Password & API Key Entropy Analyzer",
-          description: "Evaluate password mathematical entropy and estimate brute-force cracking resistance completely client-side.",
+          description: "Evaluate password strength, estimate GPU brute-force cracking time, and generate cryptographically secure API keys locally.",
           category: "privacy-tools",
           slug: "/tools/password-entropy-analyzer",
           iconName: "Key",
-          tier: "free"
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Type or paste a password in the 'Target Password' field to calculate its Shannon Entropy.",
+               "Review the 'Est. GPU Brute-Force Time' to see how long it would take an attacker array to crack it.",
+               "Check the 'Threat Forensics' panel to see if your password contains weak dictionary patterns or repeated characters.",
+               "Use the 'Secure Key Generator' to create mathematically random, highly secure passwords or Base64 API keys.",
+               "Everything happens entirely offline using the browser's Web Crypto API."
+          ]
      },
      {
-          id: "pri-5",
+          id: "privacy-5",
           name: "Disposable Email & Webhook Tester",
-          description: "Instantly create temporary inbox addresses and test HTTP webhook payloads in real-time.",
+          description: "Generate temporary endpoints to inspect incoming payloads, view raw headers, and verify JSON formats or email security signatures.",
           category: "privacy-tools",
-          slug: "/tools/disposable-email-webhook",
-          iconName: "Inbox",
-          tier: "freemium"
+          slug: "/tools/disposable-endpoint-tester",
+          iconName: "Webhook",
+          tier: "free",
+          badgeText: "Free",
+          howToUse: [
+               "Select either 'Temp Email' or 'Webhook URL' to generate an instant, 15-minute disposable endpoint.",
+               "Copy the address and use it in your target application to catch incoming data.",
+               "Use the 'Inject Mock Payload' button to simulate receiving a Stripe webhook or Netflix security email.",
+               "Click on any received item in the Inbox to inspect its Rendered Output, Raw Body, and HTTP/SMTP Headers.",
+               "Analyze built-in security metrics like SPF/DKIM validation or Webhook Signature verification."
+          ]
      }
 ];
 
