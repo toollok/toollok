@@ -187,7 +187,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "content-creator-tools",
           slug: "/tools/code-snippet-animator",
           iconName: "Video",
-          tier: "freemium",
+          tier: "free",
           howToUse: [
                "Paste your raw code snippet into the editor pane on the left.",
                "Select a syntax theme (e.g., Dracula or Monokai) and a background gradient to match your brand.",
@@ -270,7 +270,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "analytics-tools",
           slug: "/tools/options-payoff-visualizer",
           iconName: "LineChart",
-          tier: "freemium",
+          tier: "free",
           isPopular: true,
           howToUse: [
                "Set the current Spot Price of the underlying asset at the top of the Strategy Builder.",
@@ -382,6 +382,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/invoice-generator",
           iconName: "FileText",
           tier: "free", // 🟢 100% Free
+          isTrending: true,
           howToUse: [
                "Input your company name, sender details, and client billing info in the left editor panel.",
                "Customize invoice number, issue date, due date, and currency symbol.",
@@ -640,6 +641,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Code",
           tier: "free",
           badgeText: "Free",
+          isTrending: true,
           howToUse: [
                "Select the desired Schema type (Article, Product, FAQ Page, Organization, or Local Business).",
                "Fill in the structured data fields in the left-hand form editor.",
@@ -673,6 +675,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "ShieldAlert",
           tier: "free",
           badgeText: "Free",
+          isRecent: true, // <-- Add this property
           howToUse: [
                "Select the 'Robots.txt Simulator' tab to test indexation rules.",
                "Paste your robots.txt content, enter a target URL, and select a User-Agent (e.g., Googlebot).",
@@ -707,6 +710,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Network",
           tier: "free",
           badgeText: "Free",
+          isRecent: true, // <-- Add this property
           howToUse: [
                "Type your target website URL into the input field.",
                "Select your crawl depth limit (1 to 3 clicks deep).",
@@ -759,6 +763,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Cpu",
           tier: "free",
           badgeText: "Free",
+          isRecent: true, // <-- Add this property
+          isTrending: true,
           howToUse: [
                "Select a local model architecture from the WebGPU Engine Config panel.",
                "Click 'Download Weights & Load Engine' to simulate moving the model into your browser's VRAM.",
@@ -775,6 +781,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Key",
           tier: "free",
           badgeText: "Free",
+          isRecent: true, // <-- Add this property
           howToUse: [
                "Type or paste a password in the 'Target Password' field to calculate its Shannon Entropy.",
                "Review the 'Est. GPU Brute-Force Time' to see how long it would take an attacker array to crack it.",
