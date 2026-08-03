@@ -38,7 +38,7 @@ export default function InternalLinkVisualizer() {
      const [isExported, setIsExported] = useState(false);
 
      const canvasRef = useRef<HTMLCanvasElement | null>(null);
-     const animationRef = useRef<number>();
+     const animationRef = useRef<number | undefined>(undefined);
 
      // Filtered nodes logic moved up so handleCanvasClick can use it
      const filteredNodes = useMemo(() => {
@@ -392,16 +392,16 @@ export default function InternalLinkVisualizer() {
                                    <div className="flex flex-col gap-3 overflow-y-auto">
                                         {insights.map((insight, i) => (
                                              <div key={i} className={`p-3.5 rounded-xl border flex flex-col gap-1.5 ${insight.type === 'warning' ? 'bg-rose-500/10 border-rose-500/30' :
-                                                       insight.type === 'opportunity' ? 'bg-amber-500/10 border-amber-500/30' :
-                                                            'bg-emerald-500/10 border-emerald-500/30'
+                                                  insight.type === 'opportunity' ? 'bg-amber-500/10 border-amber-500/30' :
+                                                       'bg-emerald-500/10 border-emerald-500/30'
                                                   }`}>
                                                   <div className="flex items-center gap-2">
                                                        {insight.type === 'warning' && <AlertTriangle size={14} className="text-rose-400" />}
                                                        {insight.type === 'opportunity' && <Target size={14} className="text-amber-400" />}
                                                        {insight.type === 'success' && <CheckCircle2 size={14} className="text-emerald-400" />}
                                                        <span className={`text-[11px] font-bold uppercase tracking-wider ${insight.type === 'warning' ? 'text-rose-400' :
-                                                                 insight.type === 'opportunity' ? 'text-amber-400' :
-                                                                      'text-emerald-400'
+                                                            insight.type === 'opportunity' ? 'text-amber-400' :
+                                                                 'text-emerald-400'
                                                             }`}>{insight.title}</span>
                                                   </div>
                                                   <p className="text-[11px] text-gray-300 leading-relaxed">{insight.desc}</p>
