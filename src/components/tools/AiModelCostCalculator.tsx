@@ -49,8 +49,8 @@ export default function AiModelCostCalculator() {
                     inputPct
                };
           }).sort((a, b) => {
-               if (sortBy === "cost") return a.totalCost - b.totalCost;
-               return a.latencyMs - b.latencyMs;
+               if (sortBy === "cost") return (a.totalCost ?? 0) - (b.totalCost ?? 0);
+               return (a.latencyMs ?? 0) - (b.latencyMs ?? 0);
           });
      }, [estimatedInputTokens, estimatedOutputTokens, monthlyRequests, sortBy]);
 
