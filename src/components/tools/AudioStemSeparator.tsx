@@ -98,7 +98,7 @@ export default function AudioStemSeparator() {
                     </div>
                     <div>
                          <div className="flex items-center gap-3">
-                              <h2 className="text-2xl font-bold text-white">Audio Stem Separator</h2>
+                              <h2 className="text-2xl font-bold text-white">Audio Stem Separator (Demo)</h2>
                               <span className="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold px-2 py-0.5 rounded-full">
                                    🟡 Freemium
                               </span>

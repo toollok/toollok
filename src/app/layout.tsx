@@ -7,7 +7,15 @@ import { generateHomepageMetadata, generateHomepageSchema } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = generateHomepageMetadata();
+// MERGE the generated metadata with your Google verification code
+export const metadata: Metadata = {
+  ...generateHomepageMetadata(),
+  title: "ToolLok",
+  description: "Free Online tools for Developer, Content Creators, Business, Seo, Ai, etc.",
+  verification: {
+    google: "G-9HEGR0QZB3", // Paste your code here
+  },
+};
 
 export default function RootLayout({
   children,
