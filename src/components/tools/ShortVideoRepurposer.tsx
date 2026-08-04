@@ -125,7 +125,7 @@ export default function ShortVideoRepurposer() {
                          </div>
                          <div>
                               <div className="flex items-center gap-3">
-                                   <h2 className="text-2xl font-bold text-white">Multi-Platform Video Repurposer</h2>
+                                   <h2 className="text-2xl font-bold text-white">Multi-Platform Video Repurposer (Demo)</h2>
                                    <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
                                         🟢 100% Free
                                    </span>
