@@ -5,13 +5,15 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { generateHomepageMetadata, generateHomepageSchema } from "@/lib/seo";
 
+// 1. Import the official Next.js Google Analytics component
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 const inter = Inter({ subsets: ["latin"] });
 
-// MERGE the generated metadata with your Google verification code
 export const metadata: Metadata = {
   ...generateHomepageMetadata(),
   verification: {
-    google: "G-9HEGR0QZB3", // Paste your code here
+    google: "G-9HEGR0QZB3", // Your GSC verification code goes here
   },
 };
 
@@ -35,6 +37,9 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
+
+      {/* 2. Add the GA4 component with your exact Measurement ID */}
+      <GoogleAnalytics gaId="G-9HEGR0QZB3" />
     </html>
   );
 }
