@@ -23,6 +23,7 @@ export default function HtmlSitemapPage() {
                               <h2 className="text-cyan-400 font-bold text-lg border-b border-gray-800 pb-2">Main Pages</h2>
                               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                    <Link href="/" className="text-xs text-gray-300 hover:text-white bg-gray-950 p-3 rounded-xl border border-gray-800">Home</Link>
+                                   <Link href="/blog" className="text-xs text-gray-300 hover:text-white bg-gray-950 p-3 rounded-xl border border-gray-800">blog</Link>
                                    <Link href="/popular" className="text-xs text-gray-300 hover:text-white bg-gray-950 p-3 rounded-xl border border-gray-800">Popular Tools</Link>
                                    <Link href="/about" className="text-xs text-gray-300 hover:text-white bg-gray-950 p-3 rounded-xl border border-gray-800">About Us</Link>
                                    <Link href="/contact" className="text-xs text-gray-300 hover:text-white bg-gray-950 p-3 rounded-xl border border-gray-800">Contact Us</Link>
