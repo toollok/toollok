@@ -345,7 +345,7 @@ export const JSONBeautifierValidator: BlogPost = {
 <!-- Comments are visible in the HTML source only -->
      `,
 
-     coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+     coverImage: "/blog/JSON-Formatter.png",
      publishedAt: "2026-08-06T10:00:00Z", // Format: YYYY-MM-DD
      readingTime: "4 min read",
      authorId: "subham-s",
