@@ -3,7 +3,7 @@ import SearchModal from "@/components/ui/SearchModal";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban, Mail } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban, Mail, FilesIcon } from "lucide-react";
 
 export default function Navbar() {
      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -117,6 +117,9 @@ export default function Navbar() {
 
                               <Link href="/contact" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
                                    <Mail size={15} /> Contact
+                              </Link>
+                              <Link href="/blog" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <FilesIcon size={15} /> blog
                               </Link>
                          </nav>
                     </div>
