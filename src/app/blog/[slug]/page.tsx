@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           image: post.coverImage,
           datePublished: post.publishedAt,
           dateModified: post.updatedAt || post.publishedAt,
-          author: { "@type": "Person", name: author?.name || "ToolLok Team", url: "https://toollok.com/about" },
+          author: { "@type": "Person", name: author?.name || "ToolLok ", url: "https://toollok.com/about" },
           publisher: { "@type": "Organization", name: "ToolLok", logo: { "@type": "ImageObject", url: "https://toollok.com/logo.png" } },
      };
 

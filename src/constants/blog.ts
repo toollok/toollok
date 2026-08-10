@@ -13,9 +13,9 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
 ];
 
 export const BLOG_AUTHORS: Record<string, BlogAuthor> = {
-     "subham-s": {
-          id: "subham-s",
-          name: "Subham Sharma",
+     "toollok": {
+          id: "toollok",
+          name: "ToolLok",
           role: "Lead Architect",
           avatarUrl: "/avatars/subham.jpg",
           bio: "Full-stack developer and quantitative systems architect."
