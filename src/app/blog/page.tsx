@@ -90,7 +90,7 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                                   {featuredPost.title}
                                              </h2>
                                              <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                                                  <span>by Subham Sharma</span>
+                                                  <span>by ToolLok</span>
                                                   <span className="text-gray-600">•</span>
                                                   <span>{new Date(featuredPost.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                                              </div>

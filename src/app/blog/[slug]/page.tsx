@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Clock, Calendar, ArrowRight, Sparkles, ChevronRight, ChevronLeft, Zap } from "lucide-react";
-import { getPostBySlug, getAllPosts, getAuthorById } from "@/lib/blog"; // Removed getCategoryById
+import { getPostBySlug, getAllPosts, getAuthorById } from "@/lib/blog";
 import { MASTER_TOOLS_LIST } from "@/constants";
 import ClientShare from "@/components/blog/ClientShare";
 
@@ -20,16 +20,21 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
      if (!post) return { title: "Post Not Found | ToolLok" };
 
+     // Safe fallbacks for SEO in case a field is forgotten
+     const metaTitle = post.seo?.metaTitle || post.title;
+     const metaDesc = post.seo?.metaDescription || post.excerpt;
+     const keywords = post.seo?.keywords || [];
+
      return {
-          title: post.seo.metaTitle,
-          description: post.seo.metaDescription,
-          keywords: post.seo.keywords,
+          title: metaTitle,
+          description: metaDesc,
+          keywords: keywords,
           alternates: { canonical: `https://toollok.com/blog/${post.slug}` },
           openGraph: {
-               title: post.seo.metaTitle,
-               description: post.seo.metaDescription,
+               title: metaTitle,
+               description: metaDesc,
                url: `https://toollok.com/blog/${post.slug}`,
-               images: [{ url: post.coverImage }],
+               images: [{ url: post.coverImage || "" }],
                type: "article",
                publishedTime: post.publishedAt,
                modifiedTime: post.updatedAt || post.publishedAt,
@@ -37,9 +42,9 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
           },
           twitter: {
                card: "summary_large_image",
-               title: post.seo.metaTitle,
-               description: post.seo.metaDescription,
-               images: [post.coverImage],
+               title: metaTitle,
+               description: metaDesc,
+               images: [post.coverImage || ""],
           },
      };
 }
@@ -47,16 +52,20 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
      const resolvedParams = await params;
      const post = await getPostBySlug(resolvedParams.slug);
-     if (!post) notFound();
+
+     if (!post) notFound(); // If the slug isn't in index.ts, it safely triggers a 404
 
      const author = await getAuthorById(post.authorId);
      const allPosts = await getAllPosts();
 
-     const relatedTools = MASTER_TOOLS_LIST.filter(tool => post.relatedToolIds.includes(tool.id));
-     const popularTools = MASTER_TOOLS_LIST.filter(tool => !post.relatedToolIds.includes(tool.id)).slice(0, 4);
+     // SAFE ARRAYS: Prevents crashes if you forget to add these to an article
+     const safeRelatedToolIds = post.relatedToolIds || [];
+     const safeTags = post.tags || [];
+
+     const relatedTools = MASTER_TOOLS_LIST.filter(tool => safeRelatedToolIds.includes(tool.id));
+     const popularTools = MASTER_TOOLS_LIST.filter(tool => !safeRelatedToolIds.includes(tool.id)).slice(0, 4);
      const newlyAddedTools = [...MASTER_TOOLS_LIST].reverse().slice(0, 3);
 
-     // Adjusted relatedPosts to filter without checking category
      const relatedPosts = allPosts.filter(p => p.id !== post.id).slice(0, 2);
      const postIndex = allPosts.findIndex(p => p.id === post.id);
      const previousPost = postIndex > 0 ? allPosts[postIndex - 1] : null;
@@ -68,9 +77,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
      const jsonLdArticle = {
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: post.seo.metaTitle,
-          description: post.seo.metaDescription,
-          image: post.coverImage,
+          headline: post.seo?.metaTitle || post.title,
+          description: post.seo?.metaDescription || post.excerpt,
+          image: post.coverImage || "",
           datePublished: post.publishedAt,
           dateModified: post.updatedAt || post.publishedAt,
           author: { "@type": "Person", name: author?.name || "ToolLok Team", url: "https://toollok.com/about" },
@@ -102,10 +111,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <header className="flex flex-col gap-6 max-w-4xl mx-auto mb-12 text-center items-center">
                          <div className="flex items-center gap-3 flex-wrap justify-center">
                               <span className="flex items-center gap-1.5 text-xs text-gray-400 font-mono">
-                                   <Calendar size={14} /> {new Date(post.publishedAt).toLocaleDateString()}
+                                   <Calendar size={14} /> {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : "Recent"}
                               </span>
                               <span className="flex items-center gap-1.5 text-xs text-gray-400 font-mono">
-                                   <Clock size={14} /> {post.readingTime}
+                                   <Clock size={14} /> {post.readingTime || "5 min read"}
                               </span>
                          </div>
                          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">{post.title}</h1>
@@ -114,10 +123,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-start">
                          <div className="lg:col-span-8 w-full">
-                              <div className="w-full mb-12 rounded-3xl overflow-hidden border border-gray-800 shadow-2xl aspect-[2/1]">
-                                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                                   <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
-                              </div>
+
+                              {post.coverImage && (
+                                   <div className="w-full mb-12 rounded-3xl overflow-hidden border border-gray-800 shadow-2xl aspect-[2/1]">
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+                                   </div>
+                              )}
 
                               <article className="prose prose-invert prose-blue max-w-none 
               prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-white
@@ -181,12 +193,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </div>
 
                     <footer className="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-800/50">
-                         <div className="flex items-center gap-2 flex-wrap mb-12">
-                              <span className="text-xs text-gray-500 uppercase font-bold mr-2">Tags:</span>
-                              {post.tags.map(tag => (
-                                   <span key={tag} className="bg-gray-900 border border-gray-800 text-gray-300 text-xs px-3 py-1 rounded-xl hover:bg-gray-800 transition-colors cursor-pointer">#{tag}</span>
-                              ))}
-                         </div>
+
+                         {safeTags.length > 0 && (
+                              <div className="flex items-center gap-2 flex-wrap mb-12">
+                                   <span className="text-xs text-gray-500 uppercase font-bold mr-2">Tags:</span>
+                                   {safeTags.map(tag => (
+                                        <span key={tag} className="bg-gray-900 border border-gray-800 text-gray-300 text-xs px-3 py-1 rounded-xl hover:bg-gray-800 transition-colors cursor-pointer">#{tag}</span>
+                                   ))}
+                              </div>
+                         )}
 
                          {newlyAddedTools.length > 0 && (
                               <div className="mb-12">
