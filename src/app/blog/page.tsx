@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { Suspense } from "react"; // <-- Added Suspense
 import { Zap, TrendingUp, Wrench, ChevronRight, Clock, Calendar, SearchX } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
 import { MASTER_TOOLS_LIST } from "@/constants";
-import BlogSearch from "@/components/blog/BlogSearch"; // <-- Imported Client Component
+import BlogSearch from "@/components/blog/BlogSearch";
 
 export const metadata = {
      title: "ToolLok Blog | Premium Tools & Engineering Guides",
@@ -25,16 +26,15 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
           ? allPosts.filter(post =>
                post.title.toLowerCase().includes(query) ||
                post.excerpt.toLowerCase().includes(query) ||
-               post.tags.some(tag => tag.toLowerCase().includes(query)) ||
-               post.categoryId.toLowerCase().includes(query)
+               post.tags.some(tag => tag.toLowerCase().includes(query))
           )
           : allPosts;
 
-     // 1. Magazine Grid Posts (Top 5 - Only used if NOT searching)
+     // 1. Magazine Grid Posts 
      const featuredPost = allPosts[0];
      const heroGridPosts = allPosts.slice(1, 5);
 
-     // 2. Older Posts (Below the Grid - Only used if NOT searching)
+     // 2. Older Posts 
      const remainingPosts = allPosts.slice(5);
 
      // 3. Sidebar Data
@@ -53,8 +53,10 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                               </Link>
                          </div>
 
-                         {/* Live Search Component Injection */}
-                         <BlogSearch />
+                         {/* Suspense wrapper perfectly isolates the client search from the server page */}
+                         <Suspense fallback={<div className="w-full sm:w-96 h-10 bg-gray-900 rounded-xl animate-pulse" />}>
+                              <BlogSearch />
+                         </Suspense>
 
                     </div>
                </div>
@@ -84,14 +86,11 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-[#090d16]/40 to-transparent"></div>
 
                                         <div className="absolute bottom-0 left-0 w-full p-6 lg:p-10">
-                                             <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-md mb-4 inline-block tracking-wide uppercase">
-                                                  {featuredPost.categoryId}
-                                             </span>
                                              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 group-hover:text-blue-400 transition-colors leading-[1.15]">
                                                   {featuredPost.title}
                                              </h2>
                                              <div className="flex items-center gap-2 text-sm text-gray-300 font-medium">
-                                                  <span>by ToolLok</span>
+                                                  <span>by Subham Sharma</span>
                                                   <span className="text-gray-600">•</span>
                                                   <span>{new Date(featuredPost.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
                                              </div>
@@ -107,9 +106,6 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                                   <div className="absolute inset-0 bg-gradient-to-t from-[#090d16] via-[#090d16]/30 to-transparent"></div>
 
                                                   <div className="absolute bottom-0 left-0 w-full p-5">
-                                                       <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block tracking-wide uppercase">
-                                                            {post.categoryId}
-                                                       </span>
                                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
                                                             {post.title}
                                                        </h3>
@@ -129,10 +125,7 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                     {/* ========================================= */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8">
 
-                         {/* Main Content Area */}
                          <div className="lg:col-span-8">
-
-                              {/* Header changes based on search state */}
                               <h3 className="text-xl font-bold text-white mb-6 border-b border-gray-800/80 pb-4">
                                    {isSearching ? `Search Results for "${query}"` : "More Articles"}
                               </h3>
@@ -157,7 +150,7 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                         <div className="flex flex-col items-center justify-center bg-gray-900/50 p-12 rounded-3xl border border-gray-800 text-center">
                                              <SearchX size={48} className="text-gray-600 mb-4" />
                                              <h4 className="text-lg font-bold text-white mb-2">No guides found</h4>
-                                             <p className="text-sm text-gray-400 max-w-md">We couldn't find anything matching "{query}". Try searching by a different term or category.</p>
+                                             <p className="text-sm text-gray-400 max-w-md">We couldn't find anything matching "{query}". Try searching by a different term.</p>
                                              <Link href="/blog" className="mt-6 text-sm text-blue-400 hover:text-white font-bold transition-colors">
                                                   Clear Search
                                              </Link>
@@ -166,20 +159,16 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                               </div>
                          </div>
 
-                         {/* Sidebar */}
                          <aside className="lg:col-span-4 flex flex-col gap-8">
+                              {/*     <div className="bg-gradient-to-br from-blue-900/20 to-emerald-900/20 border border-blue-500/20 rounded-3xl p-6 relative overflow-hidden">
+                                   <h3 className="text-lg font-bold text-white mb-2">Join 10,000+ Builders</h3>
+                                   <p className="text-xs text-gray-400 mb-4 leading-relaxed">Get our latest system architecture breakdowns and tool updates delivered weekly.</p>
+                                   <form className="flex flex-col gap-3">
+                                        <input type="email" placeholder="developer@company.com" className="w-full bg-gray-950/50 border border-gray-700 focus:border-blue-500/50 rounded-xl px-4 py-2.5 text-sm text-white outline-none" />
+                                        <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm py-2.5 rounded-xl transition-colors">Subscribe</button>
+                                   </form>
+                              </div> */}
 
-                              {/* Newsletter Box 
-            <div className="bg-gradient-to-br from-blue-900/20 to-emerald-900/20 border border-blue-500/20 rounded-3xl p-6 relative overflow-hidden">
-              <h3 className="text-lg font-bold text-white mb-2">Join 10,000+ Builders</h3>
-              <p className="text-xs text-gray-400 mb-4 leading-relaxed">Get our latest system architecture breakdowns and tool updates delivered weekly.</p>
-              <form className="flex flex-col gap-3">
-                <input type="email" placeholder="developer@company.com" className="w-full bg-gray-950/50 border border-gray-700 focus:border-blue-500/50 rounded-xl px-4 py-2.5 text-sm text-white outline-none" />
-                <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm py-2.5 rounded-xl transition-colors">Subscribe</button>
-              </form>
-            </div>*/}
-
-                              {/* Trending Articles */}
                               {popularPosts.length > 0 && (
                                    <div className="bg-gray-900/40 backdrop-blur-md border border-gray-800 rounded-3xl p-6">
                                         <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4 flex items-center gap-2">
@@ -199,7 +188,6 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                    </div>
                               )}
 
-                              {/* Tool Recommendations */}
                               <div className="bg-gray-900/40 backdrop-blur-md border border-gray-800 rounded-3xl p-6">
                                    <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4 flex items-center gap-2">
                                         <Wrench size={16} className="text-orange-400" /> Featured Tools
@@ -213,7 +201,6 @@ export default async function BlogHomepage({ searchParams }: BlogHomepageProps) 
                                         ))}
                                    </div>
                               </div>
-
                          </aside>
                     </div>
                </main>

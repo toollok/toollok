@@ -7,20 +7,24 @@ import { useState, useEffect } from "react";
 export default function BlogSearch() {
      const router = useRouter();
      const searchParams = useSearchParams();
+
+     // Initialize state from URL if someone shares a link like /blog?q=css
      const [query, setQuery] = useState(searchParams.get("q") || "");
 
-     // Debounce the search input to prevent excessive router pushes
      useEffect(() => {
           const timer = setTimeout(() => {
+               // Only push to router if the query exists
                if (query.trim()) {
                     router.push(`/blog?q=${encodeURIComponent(query)}`);
-               } else {
+               }
+               // If query is empty, but the URL still has ?q=, we clear it
+               else if (searchParams.has("q")) {
                     router.push(`/blog`);
                }
-          }, 400); // Waits 400ms after the user stops typing
+          }, 400); // 400ms debounce
 
           return () => clearTimeout(timer);
-     }, [query, router]);
+     }, [query, router, searchParams]);
 
      return (
           <div className="relative w-full sm:w-96 group">
