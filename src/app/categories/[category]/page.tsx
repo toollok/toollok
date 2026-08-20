@@ -39,28 +39,28 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
      });
 
      return (
-          <main className="min-h-screen bg-[#090d16] text-white flex flex-col items-center px-4 py-8">
+          <main className="min-h-screen bg-white text-gray-900 dark:bg-[#090d16] dark:text-white flex flex-col items-center px-4 py-8 transition-colors">
                <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
 
                     {/* Back Link */}
                     <div>
                          <Link
                               href="/"
-                              className="inline-flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3.5 py-2 rounded-xl"
+                              className="inline-flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3.5 py-2 rounded-xl"
                          >
                               <ArrowLeft size={14} /> Back to Home
                          </Link>
                     </div>
 
                     {/* Category Header */}
-                    <div className="bg-gradient-to-r from-gray-900 via-[#0c121e] to-gray-900 border border-gray-800 rounded-3xl p-6 md:p-8 flex items-center justify-between">
+                    <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-[#0c121e] dark:to-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 md:p-8 flex items-center justify-between shadow-sm dark:shadow-none">
                          <div className="flex items-center gap-4">
-                              <div className="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 border border-cyan-500/20">
+                              <div className="w-14 h-14 bg-cyan-50 dark:bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 border border-cyan-100 dark:border-cyan-500/20">
                                    <FolderKanban size={28} />
                               </div>
                               <div>
-                                   <h1 className="text-2xl md:text-3xl font-black text-white">{category.name}</h1>
-                                   <p className="text-sm text-gray-400 mt-1">Explore free browser-based tools optimized for {category.name.toLowerCase()}.</p>
+                                   <h1 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white">{category.name}</h1>
+                                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Explore free browser-based tools optimized for {category.name.toLowerCase()}.</p>
                               </div>
                          </div>
                     </div>
@@ -84,10 +84,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                               ))}
                          </div>
                     ) : (
-                         <div className="bg-gray-900 border border-gray-800 rounded-3xl p-12 text-center text-gray-400 flex flex-col items-center gap-3">
-                              <p className="text-base font-semibold">No tools found in this category yet.</p>
+                         <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-12 text-center text-gray-600 dark:text-gray-400 flex flex-col items-center gap-3 shadow-sm dark:shadow-none">
+                              <p className="text-base font-semibold text-gray-900 dark:text-white">No tools found in this category yet.</p>
                               <p className="text-xs text-gray-500">Check back soon or explore other tool categories on the homepage.</p>
-                              <Link href="/" className="mt-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-4 py-2 rounded-xl">
+                              <Link href="/" className="mt-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors">
                                    Return to Home
                               </Link>
                          </div>

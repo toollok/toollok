@@ -30,7 +30,7 @@ export default function Footer() {
      const currentYear = new Date().getFullYear();
 
      return (
-          <footer className="bg-[#090d16] border-t border-gray-800 pt-16 pb-8 mt-auto">
+          <footer className="bg-gray-50 dark:bg-[#090d16] border-t border-gray-200 dark:border-gray-800 pt-16 pb-8 mt-auto transition-colors">
                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
 
@@ -46,22 +46,22 @@ export default function Footer() {
                                              className="w-8 h-8 object-cover"
                                         />
                                    </div>
-                                   <span className="text-xl font-extrabold tracking-tight text-white">
-                                        Tool<span className="text-blue-400">Lok</span>
+                                   <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                                        Tool<span className="text-blue-600 dark:text-blue-400">Lok</span>
                                    </span>
                               </Link>
-                              <p className="text-sm text-gray-400 leading-relaxed mt-2">
+                              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-2">
                                    A premium collection of highly engineered, 100% free client-side web utilities designed for developers, creators, and entrepreneurs.
                               </p>
                               {/* Social Links */}
                               <div className="flex items-center gap-4 mt-4">
-                                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-400 transition-colors" aria-label="Twitter">
+                                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-500 dark:text-gray-500 dark:hover:text-cyan-400 transition-colors" aria-label="Twitter">
                                         <TwitterIcon size={18} />
                                    </a>
-                                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors" aria-label="GitHub">
+                                   <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white transition-colors" aria-label="GitHub">
                                         <GithubIcon size={18} />
                                    </a>
-                                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                                   <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 dark:text-gray-500 dark:hover:text-blue-400 transition-colors" aria-label="LinkedIn">
                                         <LinkedinIcon size={18} />
                                    </a>
                               </div>
@@ -69,46 +69,46 @@ export default function Footer() {
 
                          {/* Categories */}
                          <div>
-                              <h3 className="text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Browse Categories</h3>
+                              <h3 className="text-gray-900 dark:text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Browse Categories</h3>
                               <ul className="flex flex-col gap-2.5 text-sm">
-                                   <li><Link href="/categories/developer-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Developer Tools</Link></li>
-                                   <li><Link href="/categories/content-creator-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Content Creator Tools</Link></li>
-                                   <li><Link href="/categories/analytics-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Analytics Tools</Link></li>
-                                   <li><Link href="/categories/business-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Business Tools</Link></li>
-                                   <li><Link href="/categories/ai-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">AI Tools</Link></li>
-                                   <li><Link href="/categories/productivity-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Productivity Tools</Link></li>
-                                   <li><Link href="/categories/seo-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">SEO Tools</Link></li>
-                                   <li><Link href="/categories/privacy-tools" className="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Tools</Link></li>
+                                   <li><Link href="/categories/developer-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Developer Tools</Link></li>
+                                   <li><Link href="/categories/content-creator-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Content Creator Tools</Link></li>
+                                   <li><Link href="/categories/analytics-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Analytics Tools</Link></li>
+                                   <li><Link href="/categories/business-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Business Tools</Link></li>
+                                   <li><Link href="/categories/ai-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">AI Tools</Link></li>
+                                   <li><Link href="/categories/productivity-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Productivity Tools</Link></li>
+                                   <li><Link href="/categories/seo-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">SEO Tools</Link></li>
+                                   <li><Link href="/categories/privacy-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Tools</Link></li>
                               </ul>
                          </div>
 
                          {/* Quick Links */}
                          <div>
-                              <h3 className="text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Quick Links</h3>
+                              <h3 className="text-gray-900 dark:text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Quick Links</h3>
                               <ul className="flex flex-col gap-2.5 text-sm">
-                                   <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
-                                   <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">blog</Link></li>
-                                   <li><Link href="/popular" className="text-gray-400 hover:text-amber-400 transition-colors">Popular Tools</Link></li>
-                                   <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-                                   <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Support</Link></li>
-                                   <li><Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">HTML Sitemap</Link></li>
+                                   <li><Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Home</Link></li>
+                                   <li><Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Blog</Link></li>
+                                   <li><Link href="/popular" className="text-gray-600 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Popular Tools</Link></li>
+                                   <li><Link href="/about" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About Us</Link></li>
+                                   <li><Link href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact Support</Link></li>
+                                   <li><Link href="/sitemap" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">HTML Sitemap</Link></li>
                               </ul>
                          </div>
 
                          {/* Legal & Compliance */}
                          <div>
-                              <h3 className="text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Legal & Compliance</h3>
+                              <h3 className="text-gray-900 dark:text-white font-bold mb-4 uppercase text-[11px] tracking-wider">Legal & Compliance</h3>
                               <ul className="flex flex-col gap-2.5 text-sm">
-                                   <li><Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                                   <li><Link href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms & Conditions</Link></li>
-                                   <li><Link href="/disclaimer" className="text-gray-400 hover:text-white transition-colors">Disclaimer</Link></li>
+                                   <li><Link href="/privacy" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</Link></li>
+                                   <li><Link href="/terms" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Terms & Conditions</Link></li>
+                                   <li><Link href="/disclaimer" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Disclaimer</Link></li>
                               </ul>
 
-                              <div className="mt-6 bg-gray-950 border border-gray-800 rounded-xl p-4 flex flex-col gap-2">
-                                   <div className="flex items-center gap-2 text-gray-300 text-sm font-bold">
-                                        <Mail size={14} className="text-blue-400" /> Need Help?
+                              <div className="mt-6 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex flex-col gap-2 shadow-sm">
+                                   <div className="flex items-center gap-2 text-gray-800 dark:text-gray-300 text-sm font-bold">
+                                        <Mail size={14} className="text-blue-600 dark:text-blue-400" /> Need Help?
                                    </div>
-                                   <a href="mailto:support@toollok.com" className="text-xs text-gray-500 hover:text-blue-400 transition-colors">
+                                   <a href="mailto:support@toollok.com" className="text-xs text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                         support@toollok.com
                                    </a>
                               </div>
@@ -116,7 +116,7 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom Copyright Bar */}
-                    <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
                          <p className="text-xs text-gray-500">
                               &copy; {currentYear} ToolLok. All rights reserved.
                          </p>

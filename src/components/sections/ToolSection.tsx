@@ -14,13 +14,13 @@ interface ToolSectionProps {
 
 export default function ToolSection({ title, subtitle, icon: Icon, iconColorClass, tools, bottomAdSlotId }: ToolSectionProps) {
      return (
-          <section className="py-16 border-t border-gray-800/40">
+          <section className="py-16 border-t border-gray-200 dark:border-gray-800/40">
                <div className="flex items-center justify-between mb-10">
                     <div>
                          <div className={`inline-flex items-center gap-2 ${iconColorClass} text-xs font-bold uppercase tracking-widest mb-2`}>
                               <Icon size={14} /> {subtitle}
                          </div>
-                         <h2 className="text-3xl font-extrabold text-white">{title}</h2>
+                         <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">{title}</h2>
                     </div>
                </div>
 

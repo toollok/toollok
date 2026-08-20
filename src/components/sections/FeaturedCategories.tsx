@@ -7,14 +7,14 @@ export default function FeaturedCategories() {
           <section className="mb-16">
                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
                     <div>
-                         <div className="inline-flex items-center gap-2 text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
+                         <div className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest mb-3">
                               <LayoutGrid size={14} /> Ecosystem Map
                          </div>
-                         <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                               Explore Tool Categories
                          </h2>
                     </div>
-                    <p className="text-gray-400 text-sm max-w-md mt-2 md:mt-0">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm max-w-md mt-2 md:mt-0">
                          Categorized utilities designed for client-side privacy, sub-millisecond execution, and high developer productivity.
                     </p>
                </div>

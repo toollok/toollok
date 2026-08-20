@@ -3,7 +3,8 @@ import SearchModal from "@/components/ui/SearchModal";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Menu, X, ChevronDown, Terminal, Home, Info, Flame, FolderKanban, Mail, FilesIcon } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
+import { Search, Menu, X, ChevronDown, Home, Info, Flame, FolderKanban, Mail, FilesIcon } from "lucide-react";
 
 export default function Navbar() {
      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Navbar() {
      return (
           <header
                className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-                    ? "bg-[#090d16]/80 backdrop-blur-md border-b border-gray-800 shadow-2xl"
+                    ? "bg-white/80 dark:bg-[#090d16]/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-xl dark:shadow-2xl"
                     : "bg-transparent border-b border-transparent"
                     }`}
           >
@@ -51,14 +52,14 @@ export default function Navbar() {
                                         className="w-9 h-9 object-cover"
                                    />
                               </div>
-                              <span className="text-xl font-extrabold tracking-tight text-white">
-                                   Tool<span className="text-blue-400">Lok</span>
+                              <span className="text-xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+                                   Tool<span className="text-blue-600 dark:text-blue-400">Lok</span>
                               </span>
                          </Link>
 
                          {/* Desktop Navigation Links */}
                          <nav className="hidden md:flex items-center gap-1">
-                              <Link href="/" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                              <Link href="/" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors">
                                    <Home size={15} /> Home
                               </Link>
 
@@ -70,75 +71,80 @@ export default function Navbar() {
                               >
                                    <button
                                         onClick={() => setIsCategoryOpen(!isCategoryOpen)}
-                                        className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors"
+                                        className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
                                    >
                                         <FolderKanban size={15} /> Categories <ChevronDown size={14} className={`transition-transform duration-200 ${isCategoryOpen ? "rotate-180" : ""}`} />
                                    </button>
 
                                    {/* Category Dropdown Overlay */}
                                    <div
-                                        className={`absolute top-full left-0 mt-1 w-64 bg-[#0c121e] border border-gray-800 rounded-2xl shadow-2xl p-2 z-50 transition-all duration-200 origin-top-left ${isCategoryOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
+                                        className={`absolute top-full left-0 mt-1 w-64 bg-white dark:bg-[#0c121e] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl p-2 z-50 transition-all duration-200 origin-top-left ${isCategoryOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
                                              }`}
                                    >
-                                        <Link href="/categories/developer-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/developer-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Developer Tools
                                         </Link>
-                                        <Link href="/categories/content-creator-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/content-creator-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Content Creator Tools
                                         </Link>
-                                        <Link href="/categories/analytics-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/analytics-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Analytics Tools
                                         </Link>
-                                        <Link href="/categories/business-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/business-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Business Tools
                                         </Link>
-                                        <Link href="/categories/ai-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/ai-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              AI Tools
                                         </Link>
-                                        <Link href="/categories/productivity-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/productivity-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Productivity Tools
                                         </Link>
-                                        <Link href="/categories/seo-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/seo-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              SEO Tools
                                         </Link>
-                                        <Link href="/categories/privacy-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-gray-800/80 rounded-xl transition-colors">
+                                        <Link href="/categories/privacy-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Privacy Tools
                                         </Link>
                                    </div>
                               </div>
 
-                              <Link href="/popular" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
-                                   <Flame size={15} className="text-amber-400" /> Popular
+                              <Link href="/popular" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <Flame size={15} className="text-amber-500 dark:text-amber-400" /> Popular
                               </Link>
 
-                              <Link href="/about" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                              <Link href="/about" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors">
                                    <Info size={15} /> About
                               </Link>
 
-                              <Link href="/contact" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
+                              <Link href="/contact" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors">
                                    <Mail size={15} /> Contact
                               </Link>
-                              <Link href="/blog" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors">
-                                   <FilesIcon size={15} /> blog
+
+                              <Link href="/blog" className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 rounded-lg transition-colors">
+                                   <FilesIcon size={15} /> Blog
                               </Link>
                          </nav>
                     </div>
 
                     {/* Right Action Items */}
                     <div className="flex items-center gap-3">
+
+                         {/* 1. Injected Theme Toggle Button */}
+                         <ThemeToggle />
+
                          <button
                               onClick={() => setIsSearchOpen(true)}
-                              className="flex items-center gap-2 bg-gray-900/80 hover:bg-gray-800 border border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-400 transition-colors cursor-text outline-none"
+                              className="flex items-center gap-2 bg-gray-100 dark:bg-gray-900/80 hover:bg-gray-200 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-800 rounded-lg px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 transition-colors cursor-text outline-none"
                          >
                               <Search size={14} />
                               <span className="hidden sm:inline">Search tools...</span>
-                              <kbd className="hidden sm:inline bg-gray-800 text-gray-400 px-1.5 py-0.5 rounded text-[10px] font-mono">⌘K</kbd>
+                              <kbd className="hidden sm:inline bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-1.5 py-0.5 rounded text-[10px] font-mono border border-gray-200 dark:border-gray-700">⌘K</kbd>
                          </button>
 
                          {/* Mobile Menu Toggle Button */}
                          <button
                               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                              className="md:hidden text-gray-400 hover:text-white p-2 rounded-lg hover:bg-gray-800 transition-colors"
+                              className="md:hidden text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                               aria-label="Toggle Navigation Menu"
                          >
                               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -148,50 +154,55 @@ export default function Navbar() {
 
                {/* Mobile Drawer */}
                <div
-                    className={`md:hidden fixed inset-x-0 top-[64px] bottom-0 bg-[#090d16]/95 backdrop-blur-xl border-t border-gray-800 transition-transform duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    className={`md:hidden fixed inset-x-0 top-[64px] bottom-0 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 transition-transform duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                          }`}
                >
                     <div className="px-4 py-6 flex flex-col gap-2">
-                         <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
-                              <Home size={18} className="text-gray-400" /> Home
+                         <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                              <Home size={18} className="text-gray-500 dark:text-gray-400" /> Home
                          </Link>
-                         <Link href="/popular" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
-                              <Flame size={18} className="text-amber-400" /> Popular Tools
+                         <Link href="/popular" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                              <Flame size={18} className="text-amber-500 dark:text-amber-400" /> Popular Tools
                          </Link>
-                         <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
-                              <Info size={18} className="text-gray-400" /> About Us
+                         <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                              <Info size={18} className="text-gray-500 dark:text-gray-400" /> About Us
                          </Link>
-                         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
-                              <Mail size={18} className="text-gray-400" /> Contact Us
+                         <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                              <Mail size={18} className="text-gray-500 dark:text-gray-400" /> Contact Us
                          </Link>
 
-                         <div className="mt-4 pt-4 border-t border-gray-800/60">
+                         {/* 2. Added Blog link to the mobile drawer */}
+                         <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                              <FilesIcon size={18} className="text-gray-500 dark:text-gray-400" /> Blog
+                         </Link>
+
+                         <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800/60">
                               <div className="text-[10px] uppercase font-bold text-gray-500 tracking-wider px-4 mb-2 flex items-center gap-2">
                                    <FolderKanban size={12} /> Browse Categories
                               </div>
                               <div className="flex flex-col gap-1">
-                                   <Link href="/categories/developer-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/developer-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Developer Tools
                                    </Link>
-                                   <Link href="/categories/content-creator-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/content-creator-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Content Creator Tools
                                    </Link>
-                                   <Link href="/categories/analytics-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/analytics-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Analytics Tools
                                    </Link>
-                                   <Link href="/categories/business-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/business-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Business Tools
                                    </Link>
-                                   <Link href="/categories/ai-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/ai-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         AI Tools
                                    </Link>
-                                   <Link href="/categories/productivity-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/productivity-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Productivity Tools
                                    </Link>
-                                   <Link href="/categories/seo-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/seo-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         SEO Tools
                                    </Link>
-                                   <Link href="/categories/privacy-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-800/80 transition-colors">
+                                   <Link href="/categories/privacy-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Privacy Tools
                                    </Link>
                               </div>

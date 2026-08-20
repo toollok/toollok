@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Metadata, ResolvingMetadata } from "next";
 import { MASTER_TOOLS_LIST as TOOLS_LIST } from "@/constants";
 import AdSlot from "@/components/ui/AdSlot";
 import Link from "next/link";
@@ -52,13 +53,60 @@ const toolComponents: Record<string, any> = {
      "local-wasm-llm-chat": dynamic(() => import("@/components/tools/LocalWasmLlmChat"), { loading: () => <ToolSkeleton /> }),
      "password-entropy-analyzer": dynamic(() => import("@/components/tools/PasswordEntropyAnalyzer"), { loading: () => <ToolSkeleton /> }),
      "disposable-endpoint-tester": dynamic(() => import("@/components/tools/DisposableEndpointTester"), { loading: () => <ToolSkeleton /> }),
-
 };
 
 interface PageProps {
-     params: Promise<{
-          slug: string;
-     }>;
+     params: Promise<{ slug: string }>;
+}
+
+// ==========================================
+// DYNAMIC SEO METADATA GENERATOR
+// ==========================================
+export async function generateMetadata(
+     { params }: PageProps,
+     parent: ResolvingMetadata
+): Promise<Metadata> {
+     const resolvedParams = await params;
+     const rawSlug = resolvedParams?.slug || "";
+     const slug = typeof rawSlug === "string" ? rawSlug : Array.isArray(rawSlug) ? rawSlug[0] : "";
+     const tool = TOOLS_LIST.find((t) => t.slug === `/tools/${slug}` || t.slug === slug || t.slug?.endsWith(`/${slug}`));
+
+     if (!tool) return { title: "Tool Not Found | ToolLok" };
+
+     const toolUrl = `https://toollok.com/tools/${slug}`;
+     const title = `${tool.name} | Free Online Tool | ToolLok`;
+     const description = tool.description || `Use the free ${tool.name} online. Built for speed, privacy, and productivity by ToolLok.`;
+
+     return {
+          title,
+          description,
+          alternates: {
+               canonical: toolUrl,
+          },
+          openGraph: {
+               title,
+               description,
+               url: toolUrl,
+               siteName: "ToolLok",
+               type: "website",
+          },
+          twitter: {
+               card: "summary_large_image",
+               title,
+               description,
+          },
+          robots: {
+               index: true,
+               follow: true,
+               googleBot: {
+                    index: true,
+                    follow: true,
+                    "max-video-preview": -1,
+                    "max-image-preview": "large",
+                    "max-snippet": -1,
+               },
+          },
+     };
 }
 
 export default async function ToolDetailPage({ params }: PageProps) {
@@ -66,32 +114,62 @@ export default async function ToolDetailPage({ params }: PageProps) {
      const rawSlug = resolvedParams?.slug || "";
      const slug = typeof rawSlug === "string" ? rawSlug : Array.isArray(rawSlug) ? rawSlug[0] : "";
 
-     if (!slug) {
-          notFound();
-     }
+     if (!slug) notFound();
 
      const tool = TOOLS_LIST.find((t) => t.slug === `/tools/${slug}` || t.slug === slug || t.slug?.endsWith(`/${slug}`));
 
-     if (!tool) {
-          notFound();
-     }
+     if (!tool) notFound();
 
      const ToolComponent = toolComponents[slug];
+     const toolUrl = `https://toollok.com/tools/${slug}`;
+
+     // ==========================================
+     // DYNAMIC JSON-LD SCHEMAS
+     // ==========================================
+     const softwareSchema = {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": tool.name,
+          "operatingSystem": "Web Browser",
+          "applicationCategory": "WebApplication",
+          "offers": {
+               "@type": "Offer",
+               "price": "0",
+               "priceCurrency": "USD"
+          },
+          "description": tool.description,
+          "url": toolUrl
+     };
+
+     const breadcrumbSchema = {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toollok.com" },
+               { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://toollok.com/popular" },
+               { "@type": "ListItem", "position": 3, "name": tool.name, "item": toolUrl }
+          ]
+     };
 
      return (
-          <main className="min-h-screen bg-[#090d16] text-white flex flex-col items-center px-4 py-8">
+          <main className="min-h-screen bg-white dark:bg-[#090d16] text-gray-900 dark:text-white flex flex-col items-center px-4 py-8 transition-colors">
+
+               {/* INJECT JSON-LD INTO THE DOM */}
+               <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+               <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
                <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
 
                     {/* Back Navigation & Breadcrumb */}
                     <div className="flex items-center justify-between">
                          <Link
                               href="/"
-                              className="flex items-center gap-2 text-xs text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3.5 py-2 rounded-xl"
+                              className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-3.5 py-2 rounded-xl"
                          >
                               <ArrowLeft size={14} /> Back to All Tools
                          </Link>
 
-                         <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-xl">
+                         <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 px-3 py-1.5 rounded-xl">
                               <ShieldCheck size={14} />
                               <span>Verified Secure Tool</span>
                          </div>
@@ -101,24 +179,24 @@ export default async function ToolDetailPage({ params }: PageProps) {
                     <AdSlot adSlot="tool-detail-top-banner" format="horizontal" minHeight="90px" className="w-full my-2" />
 
                     {/* Dynamic Tool Component Container */}
-                    <div className="w-full bg-[#0c121e]/50 border border-gray-800/80 rounded-3xl p-4 md:p-8 shadow-2xl backdrop-blur-sm">
+                    <div className="w-full bg-gray-50 dark:bg-[#0c121e]/50 border border-gray-200 dark:border-gray-800/80 rounded-3xl p-4 md:p-8 shadow-xl dark:shadow-2xl backdrop-blur-sm transition-colors">
                          {ToolComponent ? (
                               <ToolComponent />
                          ) : (
-                              <div className="py-12 text-center text-gray-400">Tool component loading or under maintenance.</div>
+                              <div className="py-12 text-center text-gray-500 dark:text-gray-400">Tool component loading or under maintenance.</div>
                          )}
                     </div>
 
                     {/* How to Use Section */}
                     {tool.howToUse && tool.howToUse.length > 0 && (
-                         <div className="w-full bg-gray-900/60 border border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col gap-4">
-                              <h3 className="text-white font-bold text-base flex items-center gap-2">
-                                   <Zap size={18} className="text-cyan-400" /> How to use {tool.name}
+                         <div className="w-full bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 md:p-8 flex flex-col gap-4 shadow-sm dark:shadow-none">
+                              <h3 className="text-gray-900 dark:text-white font-bold text-base flex items-center gap-2">
+                                   <Zap size={18} className="text-cyan-600 dark:text-cyan-400" /> How to use {tool.name}
                               </h3>
-                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-300">
+                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-600 dark:text-gray-300">
                                    {tool.howToUse.map((step, idx) => (
-                                        <li key={idx} className="bg-gray-950/60 border border-gray-800/60 p-3.5 rounded-2xl flex items-start gap-2.5">
-                                             <span className="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                                        <li key={idx} className="bg-gray-50 dark:bg-gray-950/60 border border-gray-200 dark:border-gray-800/60 p-3.5 rounded-2xl flex items-start gap-2.5">
+                                             <span className="w-5 h-5 rounded-full bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
                                                   {idx + 1}
                                              </span>
                                              <span>{step}</span>

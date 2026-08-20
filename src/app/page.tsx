@@ -22,7 +22,7 @@ export default function HomePage() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className="w-full min-h-screen bg-[#090d16] text-white selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
+    <div className="w-full min-h-screen bg-white text-gray-900 dark:bg-[#090d16] dark:text-white selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
 
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
@@ -53,7 +53,7 @@ export default function HomePage() {
             title="Most Popular Tools"
             subtitle="User Favorites"
             icon={Star}
-            iconColorClass="text-emerald-400"
+            iconColorClass="text-emerald-500 dark:text-emerald-400"
             tools={POPULAR_TOOLS}
             bottomAdSlotId="9988776655"
           />
@@ -63,7 +63,7 @@ export default function HomePage() {
             title="Trending This Week"
             subtitle="Rapid Growth"
             icon={Zap}
-            iconColorClass="text-amber-400"
+            iconColorClass="text-amber-500 dark:text-amber-400"
             tools={TRENDING_TOOLS}
           />
 
@@ -72,7 +72,7 @@ export default function HomePage() {
             title="Recently Published"
             subtitle="Fresh Releases"
             icon={Sparkles}
-            iconColorClass="text-cyan-400"
+            iconColorClass="text-cyan-600 dark:text-cyan-400"
             tools={RECENT_TOOLS}
           />
 
