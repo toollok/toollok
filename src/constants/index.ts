@@ -93,10 +93,10 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           isPopular: true,
           howToUse: [
-               "Select your desired animation effect from the variables menu.",
-               "Adjust the slider to increase or decrease the total duration of the animation loop.",
-               "Choose an easing curve (like Linear or Bouncy) to change the timing feel of the animation.",
-               "Click the 'Copy Code' button to copy the generated keyframes and CSS classes directly into your project."
+               "Browse & Search Animation Library across categories.",
+               "Configure Triggers & Timing (Infinite, Hover, Click, Focus, Duration, Easing).",
+               "Fine-tune with Advanced Tweaker (Border-radius and shadow blur sliders).",
+               "Export Multi-Format Code (CSS, Tailwind, SCSS, Variables, React)."
           ]
      },
      {
