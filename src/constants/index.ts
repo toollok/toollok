@@ -109,10 +109,10 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           isPopular: true,
           howToUse: [
-               "Paste your raw, unformatted, or minified JSON payload into the left input pane.",
-               "Click 'Beautify' to automatically indent and format the JSON for readability.",
-               "Click 'Minify' to strip all whitespace and compress the JSON for production use.",
-               "If there is a syntax error in your data, the validator will highlight the exact line and reason for failure."
+               "Drop your unformatted API response, configuration file, or raw string data into the left Input panel. The tool instantly validates the syntax and highlights any errors locally in your browser.",
+               "Navigate through the top menu based on your immediate task: choose Editor to beautify or minify, Tree View for visual exploration, or Analyze to extract statistics and test data paths.",
+               "If you need to restructure the data, switch to the Transform tab to flatten objects and sort keys, or use the Generate tab to automatically convert the payload into TypeScript interfaces or CSV rows.",
+               "Once your data is formatted, repaired, or converted, click the Copy button at the top right of the output panel to grab the processed result."
           ]
      },
      {

@@ -1,22 +1,8 @@
-/**
- * ToolLok Institutional Quantitative Engine
- * Black-Scholes Model & Option Greeks Calculations
- */
+// lib/finance-math.ts
 
 export type OptionType = "Call" | "Put";
 export type PositionType = "Long" | "Short";
 
-export interface OptionGreeks {
-     price: number;
-     delta: number;
-     gamma: number;
-     theta: number;
-     vega: number;
-}
-
-/**
- * Strategy Leg Interface for Payoff Visualizer
- */
 export interface PayoffLeg {
      position: PositionType;
      type: OptionType;
@@ -25,82 +11,68 @@ export interface PayoffLeg {
      quantity: number;
 }
 
-/**
- * Standard Normal Cumulative Distribution Function (CDF)
- */
-export function normalCDF(x: number): number {
+// Standard Normal cumulative distribution function (CDF)
+function normalCDF(x: number): number {
      const t = 1 / (1 + 0.2316419 * Math.abs(x));
      const d = 0.3989423 * Math.exp(-x * x / 2);
      const prob = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
      return x > 0 ? 1 - prob : prob;
 }
 
-/**
- * Standard Normal Probability Density Function (PDF)
- */
-export function normalPDF(x: number): number {
-     return Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
+// Standard Normal probability density function (PDF)
+function normalPDF(x: number): number {
+     return (1 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * x * x);
 }
 
-/**
- * Black-Scholes Option Pricing and Greeks Engine
- * @param S Current Spot Price of Underlying
- * @param K Strike Price
- * @param T Time to Expiration in Years (e.g., 30 days = 30/365)
- * @param r Risk-Free Interest Rate (decimal, e.g., 0.07 for 7%)
- * @param v Implied Volatility (decimal, e.g., 0.15 for 15% IV)
- * @param type "Call" | "Put"
- */
 export function calculateBlackScholesGreeks(
-     S: number,
-     K: number,
-     T: number,
-     r: number,
-     v: number,
+     S: number, // Spot Price
+     K: number, // Strike Price
+     T: number, // Time to Expiry (in years)
+     r: number, // Risk-free rate (e.g., 0.07 for 7%)
+     v: number, // Implied Volatility (e.g., 0.15 for 15%)
      type: OptionType
-): OptionGreeks {
-     if (T <= 0 || v <= 0) {
-          const intrinsic = type === "Call" ? Math.max(0, S - K) : Math.max(0, K - S);
-          return { price: intrinsic, delta: type === "Call" ? (S > K ? 1 : 0) : (S < K ? -1 : 0), gamma: 0, theta: 0, vega: 0 };
-     }
+) {
+     // Handle 0 DTE edge case to prevent division by zero
+     const time = Math.max(T, 0.0001);
 
-     const d1 = (Math.log(S / K) + (r + (v * v) / 2) * T) / (v * Math.sqrt(T));
-     const d2 = d1 - v * Math.sqrt(T);
+     const d1 = (Math.log(S / K) + (r + (v * v) / 2) * time) / (v * Math.sqrt(time));
+     const d2 = d1 - v * Math.sqrt(time);
 
-     const Nd1 = normalCDF(d1);
-     const Nd2 = normalCDF(d2);
-     const pdfD1 = normalPDF(d1);
+     const nd1 = normalCDF(d1);
+     const nd2 = normalCDF(d2);
+     const n_d1 = normalCDF(-d1);
+     const n_d2 = normalCDF(-d2);
+     const pdf_d1 = normalPDF(d1);
 
      let price = 0;
      let delta = 0;
-
-     if (type === "Call") {
-          price = S * Nd1 - K * Math.exp(-r * T) * Nd2;
-          delta = Nd1;
-     } else {
-          price = K * Math.exp(-r * T) * normalCDF(-d2) - S * normalCDF(-d1);
-          delta = Nd1 - 1;
-     }
-
-     // Gamma is identical for Calls and Puts
-     const gamma = pdfD1 / (S * v * Math.sqrt(T));
-
-     // Theta calculation (daily rate)
      let theta = 0;
+
+     // Gamma and Vega are the same for both Calls and Puts
+     const gamma = pdf_d1 / (S * v * Math.sqrt(time));
+     const vega = (S * pdf_d1 * Math.sqrt(time)) / 100; // Divided by 100 for 1% change
+
      if (type === "Call") {
-          theta = (- (S * pdfD1 * v) / (2 * Math.sqrt(T)) - r * K * Math.exp(-r * T) * Nd2) / 365;
+          price = S * nd1 - K * Math.exp(-r * time) * nd2;
+          delta = nd1;
+          // Theta per day
+          theta = ((-S * pdf_d1 * v) / (2 * Math.sqrt(time)) - r * K * Math.exp(-r * time) * nd2) / 365;
      } else {
-          theta = (- (S * pdfD1 * v) / (2 * Math.sqrt(T)) + r * K * Math.exp(-r * T) * normalCDF(-d2)) / 365;
+          price = K * Math.exp(-r * time) * n_d2 - S * n_d1;
+          delta = nd1 - 1;
+          // Theta per day
+          theta = ((-S * pdf_d1 * v) / (2 * Math.sqrt(time)) + r * K * Math.exp(-r * time) * n_d2) / 365;
      }
 
-     // Vega calculation (1% change in IV)
-     const vega = (S * Math.sqrt(T) * pdfD1) / 100;
+     // Probability of expiring ITM (simplified estimation using d2)
+     const probITM = type === "Call" ? normalCDF(d2) * 100 : normalCDF(-d2) * 100;
 
      return {
-          price: Number(price.toFixed(2)),
-          delta: Number(delta.toFixed(4)),
-          gamma: Number(gamma.toFixed(6)),
-          theta: Number(theta.toFixed(2)),
-          vega: Number(vega.toFixed(2))
+          price,
+          delta,
+          gamma,
+          theta,
+          vega,
+          probITM
      };
 }
