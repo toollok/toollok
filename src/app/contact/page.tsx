@@ -31,7 +31,7 @@ export default function ContactPage() {
                                    <Mail className="text-blue-600 dark:text-blue-400 shrink-0" size={24} />
                                    <div>
                                         <span className="text-xs text-gray-500 block uppercase font-bold">Direct Support Email</span>
-                                        <a href="mailto:support@toollok.com" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">support@toollok.com</a>
+                                        <a href="mailto:support@toollok.com" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">tool.lok01@gmail.com</a>
                                    </div>
                               </div>
                               <p className="text-xs text-gray-500">We typically respond to inquiries within 24 to 48 hours.</p>

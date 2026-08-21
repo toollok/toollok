@@ -109,7 +109,7 @@ export default function Footer() {
                                         <Mail size={14} className="text-blue-600 dark:text-blue-400" /> Need Help?
                                    </div>
                                    <a href="mailto:support@toollok.com" className="text-xs text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                        support@toollok.com
+                                        tool.lok01@gmail.com
                                    </a>
                               </div>
                          </div>

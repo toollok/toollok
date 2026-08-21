@@ -189,11 +189,11 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Video",
           tier: "free",
           howToUse: [
-               "Paste your raw code snippet into the editor pane on the left.",
-               "Select a syntax theme (e.g., Dracula or Monokai) and a background gradient to match your brand.",
-               "Use the padding slider to adjust how much breathing room your code has inside the canvas.",
-               "Click the 'Play Preview' button to see the typewriter animation in real-time.",
-               "To export the animation as a high-quality MP4 for your channel, click 'Render 4K Video' (Premium feature)."
+               "Paste Your Code and Select an IDE Theme - Navigate to the Editor tab and paste your snippet. Choose from developer-favorite syntax themes such as Dracula, Tokyo Night, Monokai, or GitHub Dark to ensure crisp contrast and accurate language highlighting.",
+               "Choose Your Social Media Canvas Format - Open the Design tab to pick the optimal aspect ratio for your platform. Select 9:16 for vertical platforms (YouTube Shorts, Reels, TikTok), 16:9 for long-form desktop tutorials, or 1:1 for square social posts.",
+               "Build Multi-Scene Timelines and Spotlights - Break complex algorithms into digestible steps using the bottom Timeline. Add scenes for your hook, implementation, and output. Use the Code Spotlight input (e.g., 2, 4, 5) to automatically dim and blur non-essential lines during key moments.",
+               "Style the Background and Apply Creator Branding - Select a cinematic gradient, mesh, or dark background to make the code card pop. Head to the Brand tab to enable your custom channel watermark, configure opacity, and maintain consistent creator branding across every clip.",
+               "Adjust Typing Speed, Preview, and Export - Fine-tune character typing delays in the Export tab to match natural coding rhythm. Hit Play to review the full multi-scene animation, grab the auto-generated social description and hashtags, and export your video."
           ],
           isTrending: true
      },
