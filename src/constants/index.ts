@@ -124,10 +124,11 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Server",
           tier: "free", // 🟢 100% Free
           howToUse: [
-               "Select an existing mock endpoint or click 'Add Route' to create a custom REST route path.",
-               "Configure the HTTP method (GET/POST), status code (200, 401, 500), simulated latency, and synthetic JSON schema preset.",
-               "Switch to the 'Live Sandbox Test' tab and click 'Send Request' to test the mock response with simulated network delay.",
-               "Switch to the 'Express.js Server Code' tab to copy a complete Node.js mock server script to run locally on your machine."
+               "Configure Your Endpoint: Start by clicking Add Route. Select your HTTP method (GET, POST, etc.) and define the route path (e.g., /api/users/:id). Set the desired HTTP status code, authentication requirement, and simulated network latency to mimic real-world network conditions.",
+               "Design the Synthetic Payload: Inject dynamic data.In the Config & Response tab, write your default JSON response. Use dynamic double-brace variables like {{uuid}}, {{name}}, or {{path.id}} to ensure the mock server generates fresh, realistic synthetic data on every single request.",
+               "Set Up Conditional Rules: Simulate edge cases.Switch to the Rules tab to build logic without writing code. Create IF/THEN scenarios—such as forcing a 500 Server Error if the query parameter ?error=true is present, or returning 404 Not Found if a specific path parameter is used.",
+               "Test in the Live Sandbox: Verify your routing logic.Go to the Live Sandbox tab to act as the client. Enter your configured URL, add any necessary headers or JSON body payloads, and click Send Request. The response pipeline will show you the exact status code, simulated latency, and dynamically generated JSON.",
+               "Export to Your Codebase: Once the endpoint behaves perfectly, open the Code Export tab. Instantly copy ready-to-use code snippets for Express.js, MSW (Mock Service Worker), JS Fetch, or cURL to drop directly into your frontend development workflow."
           ]
      },
      {
@@ -166,17 +167,18 @@ export const MASTER_TOOLS_LIST: Tool[] = [
      // 2. Content Creator Tools
      {
           id: "cre-1",
-          name: "YouTube Thumbnail A/B Previewer",
+          name: "YouTube Thumbnail Analyzer & Previewer",
           description: "Preview thumbnails and titles across YouTube desktop, mobile, and feed layouts in light and dark mode.",
           category: "content-creator-tools",
           slug: "/tools/youtube-thumbnail-previewer",
           iconName: "Layout",
           tier: "free",
           howToUse: [
-               "Click the 'Replace Image' box on the left to upload your drafted thumbnail (16:9 ratio recommended).",
-               "Type your intended video title into the text box to see how it naturally breaks across multiple lines.",
-               "Adjust the channel name, views, and timestamp to replicate a real-world scenario.",
-               "Toggle between Light Mode and Dark Mode at the top to ensure your thumbnail maintains high contrast and visibility regardless of the viewer's device settings."
+               "Upload Your Artwork & Metadata - Start by uploading your initial thumbnail design into the workspace. Enter your proposed video title, channel name (like CodeMines), and duration to create a realistic testing environment.",
+               "Inspect the Live Previews - Stay on the Live Previews tab to see exactly how your thumbnail appears natively on the Desktop Homepage, Mobile View, and Sidebar/Up Next sections. Toggle between Light and Dark UI modes to ensure your text pops regardless of the viewer's system settings.",
+               "Run the Visual Tests - Use the testing toolbar directly above the previews to apply the Blur Test (to check if your visual hierarchy is strong), Grayscale Test (to verify color contrast), and Safe Zones (to ensure YouTube's duration badges and UI overlays won't block critical information).",
+               "Review Technical Diagnostics - Switch to the 'Diagnostics & Score' tab to evaluate your overall Thumbnail Quality Score. Ensure your image passes the strict resolution (1280x720), aspect ratio (16:9), and file size (under 2MB) requirements. Pay special attention to the 160px Extreme Mobile Readability test to guarantee smartphone users can read your text.",
+               "A/B Compare & Export - If you are torn between different designs, upload up to three variations (A, B, and C) using the 'A/B Compare' tab to evaluate them side-by-side based on their scores and visual impact. Once you've identified the winning concept, click 'Download Full Report' to save a final technical summary before publishing your video."
           ],
           isPopular: true
      },
