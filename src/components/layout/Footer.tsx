@@ -74,11 +74,12 @@ export default function Footer() {
                                    <li><Link href="/categories/developer-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Developer Tools</Link></li>
                                    <li><Link href="/categories/content-creator-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Content Creator Tools</Link></li>
                                    <li><Link href="/categories/analytics-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Analytics Tools</Link></li>
+                                   <li><Link href="/categories/cybersecurity-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Cybersecurity Tools</Link></li>
                                    <li><Link href="/categories/business-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Business Tools</Link></li>
-                                   <li><Link href="/categories/ai-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">AI Tools</Link></li>
                                    <li><Link href="/categories/productivity-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Productivity Tools</Link></li>
                                    <li><Link href="/categories/seo-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">SEO Tools</Link></li>
                                    <li><Link href="/categories/privacy-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Tools</Link></li>
+                                   <li><Link href="/categories/ai-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">AI Tools</Link></li>
                               </ul>
                          </div>
 

@@ -93,8 +93,8 @@ export default function Navbar() {
                                         <Link href="/categories/business-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Business Tools
                                         </Link>
-                                        <Link href="/categories/ai-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
-                                             AI Tools
+                                        <Link href="/categories/cybersecurity-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
+                                             Cybersecurity Tools
                                         </Link>
                                         <Link href="/categories/productivity-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Productivity Tools
@@ -104,6 +104,9 @@ export default function Navbar() {
                                         </Link>
                                         <Link href="/categories/privacy-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              Privacy Tools
+                                        </Link>
+                                        <Link href="/categories/ai-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
+                                             AI Tools
                                         </Link>
                                    </div>
                               </div>
@@ -193,8 +196,8 @@ export default function Navbar() {
                                    <Link href="/categories/business-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Business Tools
                                    </Link>
-                                   <Link href="/categories/ai-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
-                                        AI Tools
+                                   <Link href="/categories/cybersecurity-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                                        Cybersecurity Tools
                                    </Link>
                                    <Link href="/categories/productivity-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Productivity Tools
@@ -204,6 +207,9 @@ export default function Navbar() {
                                    </Link>
                                    <Link href="/categories/privacy-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         Privacy Tools
+                                   </Link>
+                                   <Link href="/categories/ai-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                                        AI Tools
                                    </Link>
                               </div>
                          </div>

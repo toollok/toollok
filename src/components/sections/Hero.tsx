@@ -45,10 +45,11 @@ export default function Hero({ onOpenSearch }: { onOpenSearch: () => void }) {
                <div className="flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
                     <span className="text-gray-600 dark:text-gray-500 font-medium">Popular:</span>
                     {[
+                         { name: "Local .env & Secret Token Scanner", slug: "/tools/local-env-secret-token-scanner" },
                          { name: "JSON Formatter", slug: "/tools/json-formatter-validator" },
                          { name: "Options Visualizer", slug: "/tools/options-payoff-visualizer" },
                          { name: "CSS Animator", slug: "/tools/css-animation-builder" },
-                         { name: "PII Scrubber", slug: "/tools/pii-data-scrubber" }
+                         { name: "PII Scrubber", slug: "/tools/browser-pii-scrubber" }
                     ].map((tag) => (
                          <Link
                               key={tag.name}

@@ -1285,8 +1285,7 @@ console.log(bytes);</code></pre>
   // COVER IMAGE
   // ============================================================
 
-  coverImage:
-    "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop",
+  coverImage: "/blog/Password-&-API-Key-Analyzer.png",
 
   // ============================================================
   // PUBLISHING

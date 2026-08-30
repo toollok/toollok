@@ -31,7 +31,7 @@ export const CATEGORIES: Category[] = [
           slug: "analytics-tools",
           description: "Derivatives payoff diagrams, UTM campaign builders, SaaS unit economics, and churn predictors.",
           iconName: "TrendingUp",
-          toolCount: 5,
+          toolCount: 7,
           colorTheme: "from-emerald-500 to-teal-400"
      },
      {
@@ -40,17 +40,17 @@ export const CATEGORIES: Category[] = [
           slug: "business-tools",
           description: "PDF invoice generators, B2B lead scrapers, pricing simulators, and legal contract scanners.",
           iconName: "Briefcase",
-          toolCount: 5,
+          toolCount: 6,
           colorTheme: "from-amber-500 to-orange-400"
      },
      {
-          id: "ai",
-          name: "AI Tools",
-          slug: "ai-tools",
-          description: "Prompt optimizers, text humanizers, LLM cost calculators, and red-teaming security suites.",
-          iconName: "Bot",
-          toolCount: 5,
-          colorTheme: "from-rose-500 to-red-500"
+          id: "cybersecurity",
+          name: "Cybersecurity Tools",
+          slug: "cybersecurity-tools",
+          description: "Protect your applications and data with advanced encryption generators, password entropy analysis, and AI prompt security simulators.",
+          iconName: "ShieldAlert",
+          toolCount: 2,
+          colorTheme: "from-red-500 to-rose-700"
      },
      {
           id: "productivity",
@@ -67,7 +67,7 @@ export const CATEGORIES: Category[] = [
           slug: "seo-tools",
           description: "JSON-LD schema generators, SERP previewers, robots.txt inspectors, and link visualizers.",
           iconName: "Search",
-          toolCount: 5,
+          toolCount: 6,
           colorTheme: "from-cyan-500 to-blue-600"
      },
      {
@@ -78,7 +78,17 @@ export const CATEGORIES: Category[] = [
           iconName: "Shield",
           toolCount: 5,
           colorTheme: "from-teal-400 to-emerald-600"
+     },
+     {
+          id: "ai",
+          name: "AI Tools",
+          slug: "ai-tools",
+          description: "Prompt optimizers, text humanizers, LLM cost calculators, and red-teaming security suites.",
+          iconName: "Bot",
+          toolCount: 5,
+          colorTheme: "from-rose-500 to-red-500"
      }
+
 ];
 
 export const MASTER_TOOLS_LIST: Tool[] = [
@@ -808,7 +818,106 @@ export const MASTER_TOOLS_LIST: Tool[] = [
                "Click on any received item in the Inbox to inspect its Rendered Output, Raw Body, and HTTP/SMTP Headers.",
                "Analyze built-in security metrics like SPF/DKIM validation or Webhook Signature verification."
           ]
-     }
+     },
+
+     // 9. Cybertools
+     {
+          id: "cyber-1",
+          name: "Local .env & Secret Token Scanner",
+          description: "Scan code, .env files, and Git diffs locally in your browser to detect leaked API keys, AWS credentials, and high-entropy secrets.",
+          category: "cybersecurity-tools",
+          slug: "/tools/local-env-secret-token-scanner",
+          iconName: "FileKey",
+          tier: "free",
+          isPopular: true,
+          tags: [
+               "Cybersecurity",
+               "Secret Scanner",
+               "API Security",
+               "Developer Security",
+               "Environment Variables",
+               "Git Security",
+               "Privacy",
+               "Credential Scanner"
+          ],
+          seo: {
+               metaTitle: "Local .env & Secret Token Scanner - Free Secret Scanner | ToolLok",
+               metaDescription: "Free client-side secret scanner to detect leaked AWS keys, Stripe tokens, private keys, and database URLs in .env files and source code. 100% private browser processing.",
+               keywords: [
+                    "secret scanner",
+                    "free secret scanner",
+                    ".env secret scanner",
+                    ".env scanner",
+                    "API key scanner",
+                    "API token scanner",
+                    "source code secret scanner",
+                    "leaked secrets scanner",
+                    "credentials scanner",
+                    "secret detection tool",
+                    "environment variable scanner",
+                    "Git secret scanner",
+                    "Git diff secret scanner",
+                    "API key detector",
+                    "token scanner",
+                    "local secret scanner",
+                    "client-side secret scanner",
+                    "free cybersecurity tool",
+                    "developer security tool"
+               ]
+          },
+          howToUse: [
+               "Select your file format (.env, JSON, YAML, Git Diff) or drag and drop a configuration file into the editor.",
+               "Click 'Run Security Scan' (or press Ctrl+S) to inspect text using verified signatures and Shannon entropy checks.",
+               "Review detected credentials categorized by severity, line number, confidence score, and calculated entropy.",
+               "Export sanitized compliance reports in JSON, CSV, or Markdown format to assist with credential rotation."
+          ]
+     },
+     {
+          id: "cyber-4",
+          name: "Web Crypto Hash & HMAC Suite",
+          description: "Generate highly secure cryptographic hashes, HMAC signatures, and SHA256SUMS file manifests locally in your browser.",
+          category: "cybersecurity-tools",
+          slug: "/tools/hash-hmac-generator",
+          iconName: "Fingerprint",
+          tier: "free",
+          isPopular: false,
+          tags: [
+               "Cybersecurity",
+               "Hashing",
+               "SHA-256",
+               "HMAC",
+               "File Integrity",
+               "Cryptography",
+               "Developer Tools"
+          ],
+          seo: {
+               metaTitle: "SHA-256 Hash Generator & File Checksum Tool - Free | ToolLok",
+               metaDescription: "Generate SHA-256 hashes, verify file integrity checksums, and create HMAC signatures 100% locally in your browser without uploading files.",
+               keywords: [
+                    "hash generator",
+                    "SHA-256 hash generator",
+                    "SHA-512 hash generator",
+                    "file hash generator",
+                    "HMAC generator",
+                    "hash checker",
+                    "checksum generator",
+                    "checksum verifier",
+                    "file integrity checker",
+                    "SHA256 checksum generator",
+                    "online hash calculator",
+                    "free hash generator",
+                    "local hash generator",
+                    "md5 hash generator",
+                    "browser crypto tool"
+               ]
+          },
+          howToUse: [
+               "Select 'Hash & Verify' to generate checksums, or 'HMAC' to sign data with a secret key.",
+               "Choose your desired cryptographic algorithm (SHA-256 is recommended).",
+               "Type text or upload a file. Files are processed entirely locally in your browser to guarantee privacy.",
+               "Compare the calculated digest against an expected hash to verify file integrity instantly."
+          ]
+     },
 ];
 
 export const POPULAR_TOOLS = MASTER_TOOLS_LIST.filter(t => t.isPopular);

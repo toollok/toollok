@@ -1,17 +1,17 @@
 import { BlogPost } from "@/types/blog";
 
 export const optionsDerivativesPayoffVisualizer: BlogPost = {
-     id: "options-derivatives-payoff-visualizer-guide",
+  id: "options-derivatives-payoff-visualizer-guide",
 
-     slug: "options-derivatives-payoff-calculator-guide",
+  slug: "options-derivatives-payoff-calculator-guide",
 
-     title:
-          "Options & Derivatives Payoff Calculator: Visualize Profit, Loss & Greeks",
+  title:
+    "Options & Derivatives Payoff Calculator: Visualize Profit, Loss & Greeks",
 
-     excerpt:
-          "Learn how options payoff diagrams work, calculate potential profit and loss, understand option Greeks, and visualize multi-leg derivatives strategies with ToolLok.",
+  excerpt:
+    "Learn how options payoff diagrams work, calculate potential profit and loss, understand option Greeks, and visualize multi-leg derivatives strategies with ToolLok.",
 
-     content: `
+  content: `
     <p>
       Options trading involves multiple variables that can make it difficult
       to understand how a strategy may behave at different underlying asset
@@ -1058,76 +1058,75 @@ Lots: 1</code></pre>
     </ul>
   `,
 
-     coverImage:
-          "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop",
+  coverImage: "/blog/Options-&-Derivatives-Payoff.png",
 
-     publishedAt: "2026-08-12T10:00:00Z",
+  publishedAt: "2026-08-12T10:00:00Z",
 
-     readingTime: "11 min read",
+  readingTime: "11 min read",
 
-     authorId: "toollok",
+  authorId: "toollok",
 
-     categoryId: "finance",
+  categoryId: "finance",
 
-     tags: [
-          "Options Calculator",
-          "Options Payoff Calculator",
-          "Options Strategy Calculator",
-          "Options Profit Loss",
-          "Options Payoff Diagram",
-          "Derivatives Calculator",
-          "Options Greeks",
-          "Black-Scholes",
-          "Black-Scholes Calculator",
-          "Implied Volatility",
-          "Portfolio Delta",
-          "Portfolio Theta",
-          "Options Trading",
-          "Derivatives",
-          "Finance Tools",
-     ],
+  tags: [
+    "Options Calculator",
+    "Options Payoff Calculator",
+    "Options Strategy Calculator",
+    "Options Profit Loss",
+    "Options Payoff Diagram",
+    "Derivatives Calculator",
+    "Options Greeks",
+    "Black-Scholes",
+    "Black-Scholes Calculator",
+    "Implied Volatility",
+    "Portfolio Delta",
+    "Portfolio Theta",
+    "Options Trading",
+    "Derivatives",
+    "Finance Tools",
+  ],
 
-     relatedToolIds: [
-          "ana-1",
-     ],
+  relatedToolIds: [
+    "ana-1",
+  ],
 
-     seo: {
-          metaTitle:
-               "Options Payoff Calculator – Profit, Loss & Greeks Visualizer | ToolLok",
+  seo: {
+    metaTitle:
+      "Options Payoff Calculator – Profit, Loss & Greeks Visualizer | ToolLok",
 
-          metaDescription:
-               "Visualize options payoff, profit and loss, multi-leg strategies, Delta, Theta and Black-Scholes metrics with ToolLok's free options calculator.",
+    metaDescription:
+      "Visualize options payoff, profit and loss, multi-leg strategies, Delta, Theta and Black-Scholes metrics with ToolLok's free options calculator.",
 
-          keywords: [
-               "options payoff calculator",
-               "options profit loss calculator",
-               "options calculator",
-               "options strategy calculator",
-               "options payoff diagram",
-               "options payoff chart",
-               "option payoff calculator",
-               "options trading calculator",
-               "derivatives calculator",
-               "options Greeks calculator",
-               "Black-Scholes calculator",
-               "Black-Scholes option calculator",
-               "implied volatility calculator",
-               "option Delta calculator",
-               "option Theta calculator",
-               "portfolio Delta calculator",
-               "portfolio Theta calculator",
-               "multi leg options calculator",
-               "options strategy payoff",
-               "options profit calculator",
-               "options risk calculator",
-               "derivatives payoff calculator",
-               "options analysis tool",
-               "free options calculator",
-               "online options calculator",
-          ],
-     },
+    keywords: [
+      "options payoff calculator",
+      "options profit loss calculator",
+      "options calculator",
+      "options strategy calculator",
+      "options payoff diagram",
+      "options payoff chart",
+      "option payoff calculator",
+      "options trading calculator",
+      "derivatives calculator",
+      "options Greeks calculator",
+      "Black-Scholes calculator",
+      "Black-Scholes option calculator",
+      "implied volatility calculator",
+      "option Delta calculator",
+      "option Theta calculator",
+      "portfolio Delta calculator",
+      "portfolio Theta calculator",
+      "multi leg options calculator",
+      "options strategy payoff",
+      "options profit calculator",
+      "options risk calculator",
+      "derivatives payoff calculator",
+      "options analysis tool",
+      "free options calculator",
+      "online options calculator",
+    ],
+  },
 
-     isPopular: true,
+  isPopular: true,
 
-     isFeatured: true,
+  isFeatured: true,
 };

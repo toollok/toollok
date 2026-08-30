@@ -13,6 +13,12 @@ export interface Tool {
      isRecent?: boolean;
      badgeText?: string;
      howToUse?: string[];
+     tags?: string[];
+     seo?: {
+          metaTitle: string;
+          metaDescription: string;
+          keywords: string[];
+     };
 }
 
 export interface Category {

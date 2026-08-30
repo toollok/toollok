@@ -60,7 +60,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                               </div>
                               <div>
                                    <h1 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-white">{category.name}</h1>
-                                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Explore free browser-based tools optimized for {category.name.toLowerCase()}.</p>
+                                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Explore free online <strong> {category.name.toLowerCase()} </strong>  designed for fast, accurate, and easy results. Work directly in your browser with simple, secure, mobile-friendly solutions and no signup required.</p>
                               </div>
                          </div>
                     </div>

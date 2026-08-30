@@ -53,6 +53,8 @@ const toolComponents: Record<string, any> = {
      "local-wasm-llm-chat": dynamic(() => import("@/components/tools/LocalWasmLlmChat"), { loading: () => <ToolSkeleton /> }),
      "password-entropy-analyzer": dynamic(() => import("@/components/tools/PasswordEntropyAnalyzer"), { loading: () => <ToolSkeleton /> }),
      "disposable-endpoint-tester": dynamic(() => import("@/components/tools/DisposableEndpointTester"), { loading: () => <ToolSkeleton /> }),
+     "local-env-secret-token-scanner": dynamic(() => import("@/components/tools/LocalEnvSecretScanner"), { loading: () => <ToolSkeleton /> }),
+     "hash-hmac-generator": dynamic(() => import("@/components/tools/WebCryptoHashSuite"), { loading: () => <ToolSkeleton /> }),
 };
 
 interface PageProps {

@@ -396,8 +396,8 @@ export default function CssAnimationBuilder() {
                                              key={cat}
                                              onClick={() => setCategory(cat)}
                                              className={`px-3 py-1.5 rounded-lg font-bold capitalize whitespace-nowrap transition-colors shrink-0 ${category === cat
-                                                       ? "bg-blue-600 text-white shadow-sm"
-                                                       : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                                                  ? "bg-blue-600 text-white shadow-sm"
+                                                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                                                   }`}
                                         >
                                              {cat}
@@ -416,8 +416,8 @@ export default function CssAnimationBuilder() {
                                                        key={preset.id}
                                                        onClick={() => setSelectedPresetId(preset.id)}
                                                        className={`p-3 rounded-xl border text-left cursor-pointer transition-all flex flex-col justify-between ${isSelected
-                                                                 ? "bg-blue-50 dark:bg-blue-600/15 border-blue-500 text-blue-600 dark:text-blue-400 shadow-sm"
-                                                                 : "bg-gray-50 dark:bg-gray-950/50 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
+                                                            ? "bg-blue-50 dark:bg-blue-600/15 border-blue-500 text-blue-600 dark:text-blue-400 shadow-sm"
+                                                            : "bg-gray-50 dark:bg-gray-950/50 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
                                                             }`}
                                                   >
                                                        <div className="flex items-center justify-between mb-1">
@@ -456,8 +456,8 @@ export default function CssAnimationBuilder() {
                                                   key={t}
                                                   onClick={() => setTrigger(t)}
                                                   className={`py-2 px-2 rounded-xl text-xs font-bold capitalize transition-all border ${trigger === t
-                                                            ? "bg-blue-50 dark:bg-blue-600/20 border-blue-500 text-blue-600 dark:text-blue-400"
-                                                            : "bg-gray-50 dark:bg-gray-950 border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400"
+                                                       ? "bg-blue-50 dark:bg-blue-600/20 border-blue-500 text-blue-600 dark:text-blue-400"
+                                                       : "bg-gray-50 dark:bg-gray-950 border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400"
                                                        }`}
                                              >
                                                   {t.replace("-", " ")}
@@ -556,8 +556,8 @@ export default function CssAnimationBuilder() {
                                         <button
                                              onClick={() => setIsPlaying(!isPlaying)}
                                              className={`backdrop-blur-md border px-3 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5 text-xs font-bold ${isPlaying
-                                                       ? "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/30 text-blue-600 dark:text-blue-400"
-                                                       : "bg-white/80 dark:bg-gray-900/80 border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400"
+                                                  ? "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/30 text-blue-600 dark:text-blue-400"
+                                                  : "bg-white/80 dark:bg-gray-900/80 border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400"
                                                   }`}
                                         >
                                              <Play size={14} className={isPlaying ? "fill-current" : ""} />
@@ -617,8 +617,8 @@ export default function CssAnimationBuilder() {
                                                   key={tab}
                                                   onClick={() => setOutputTab(tab)}
                                                   className={`px-3 py-1.5 rounded-lg font-mono font-bold uppercase transition-colors shrink-0 ${outputTab === tab
-                                                            ? "bg-blue-600 text-white"
-                                                            : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                                                       ? "bg-blue-600 text-white"
+                                                       : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                                                        }`}
                                              >
                                                   {tab}

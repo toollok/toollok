@@ -506,9 +506,7 @@ Response:
     </p>
   `,
 
-  coverImage:
-    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
-
+  coverImage: "/blog/API-Mock-Server-&-Data-Generator.png",
   publishedAt: "2026-08-26T11:50:00Z",
 
   readingTime: "8 min read",
