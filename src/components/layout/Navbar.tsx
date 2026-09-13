@@ -217,6 +217,12 @@ export default function Navbar() {
                                    <Link href="/categories/ai-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
                                         AI Tools
                                    </Link>
+                                   <Link href="/categories/image-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                                        Image Tools
+                                   </Link>
+                                   <Link href="/categories/pdf-tools" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-600 dark:text-gray-300 text-sm font-medium py-3 px-4 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800/80 transition-colors">
+                                        PDF Tools
+                                   </Link>
                               </div>
                          </div>
                     </div>
