@@ -10,7 +10,7 @@ export const metadata = {
 export default function PopularToolsPage() {
      // For the popular page, we can slice the first 9 tools, 
      // or filter by a specific criteria if you add 'isPopular: true' to your constants later.
-     const popularTools = MASTER_TOOLS_LIST.slice(0, 9);
+     const popularTools = MASTER_TOOLS_LIST.slice(0, 12);
 
      return (
           <main className="min-h-screen bg-white dark:bg-[#090d16] text-gray-900 dark:text-white flex flex-col items-center px-4 py-12 transition-colors">

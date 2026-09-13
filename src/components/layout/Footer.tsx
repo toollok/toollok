@@ -55,7 +55,7 @@ export default function Footer() {
                               </p>
                               {/* Social Links */}
                               <div className="flex items-center gap-4 mt-4">
-                                   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-500 dark:text-gray-500 dark:hover:text-cyan-400 transition-colors" aria-label="Twitter">
+                                   <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-500 dark:text-gray-500 dark:hover:text-cyan-400 transition-colors" aria-label="Twitter">
                                         <TwitterIcon size={18} />
                                    </a>
                                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white transition-colors" aria-label="GitHub">
@@ -80,6 +80,8 @@ export default function Footer() {
                                    <li><Link href="/categories/seo-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">SEO Tools</Link></li>
                                    <li><Link href="/categories/privacy-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Tools</Link></li>
                                    <li><Link href="/categories/ai-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">AI Tools</Link></li>
+                                   <li><Link href="/categories/image-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Image Tools</Link></li>
+                                   <li><Link href="/categories/pdf-tools" className="text-gray-600 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">PDF Tools</Link></li>
                               </ul>
                          </div>
 
@@ -109,7 +111,7 @@ export default function Footer() {
                                    <div className="flex items-center gap-2 text-gray-800 dark:text-gray-300 text-sm font-bold">
                                         <Mail size={14} className="text-blue-600 dark:text-blue-400" /> Need Help?
                                    </div>
-                                   <a href="mailto:support@toollok.com" className="text-xs text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                   <a href="mailto:tool.lok01@gmail.com" className="text-xs text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                                         tool.lok01@gmail.com
                                    </a>
                               </div>

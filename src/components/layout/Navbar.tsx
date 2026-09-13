@@ -108,6 +108,12 @@ export default function Navbar() {
                                         <Link href="/categories/ai-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
                                              AI Tools
                                         </Link>
+                                        <Link href="/categories/image-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
+                                             Image Tools
+                                        </Link>
+                                        <Link href="/categories/pdf-tools" onClick={() => setIsCategoryOpen(false)} className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800/80 rounded-xl transition-colors">
+                                             PDF Tools
+                                        </Link>
                                    </div>
                               </div>
 

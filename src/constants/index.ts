@@ -1,4 +1,5 @@
 import { Category, Tool, FAQItem, Testimonial } from "@/types";
+import { tr } from "framer-motion/client";
 
 // 🔴 GLOBAL FEATURE FLAGS
 export const ENABLE_ADS = false; // Set to true when you add your Publisher ID
@@ -87,6 +88,24 @@ export const CATEGORIES: Category[] = [
           iconName: "Bot",
           toolCount: 5,
           colorTheme: "from-rose-500 to-red-500"
+     },
+     {
+          id: "image",
+          name: "Image Tools",
+          slug: "image-tools",
+          description: "Compress, resize, crop, convert formats, and remove backgrounds securely in your browser.",
+          iconName: "Image",
+          toolCount: 1,
+          colorTheme: "from-fuchsia-500 to-purple-600",
+     },
+     {
+          id: "pdf",
+          name: "PDF Tools",
+          slug: "pdf-tools",
+          description: "Merge, split, compress, extract text, and convert PDF documents with 100% local privacy.",
+          iconName: "FileText",
+          toolCount: 1,
+          colorTheme: "from-red-500 to-orange-500",
      }
 
 ];
@@ -102,6 +121,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Sparkles",
           tier: "free",
           isPopular: true,
+          isTrending: true,
+          isRecent: true,
           howToUse: [
                "Browse & Search Animation Library across categories.",
                "Configure Triggers & Timing (Infinite, Hover, Click, Focus, Duration, Easing).",
@@ -117,7 +138,9 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/json-formatter-validator",
           iconName: "FileJson",
           tier: "free",
+          isRecent: true,
           isPopular: true,
+          isTrending: true,
           howToUse: [
                "Drop your unformatted API response, configuration file, or raw string data into the left Input panel. The tool instantly validates the syntax and highlights any errors locally in your browser.",
                "Navigate through the top menu based on your immediate task: choose Editor to beautify or minify, Tree View for visual exploration, or Analyze to extract statistics and test data paths.",
@@ -132,6 +155,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "developer-tools",
           slug: "/tools/api-mock-server",
           iconName: "Server",
+          isRecent: true,
           tier: "free", // 🟢 100% Free
           howToUse: [
                "Configure Your Endpoint: Start by clicking Add Route. Select your HTTP method (GET, POST, etc.) and define the route path (e.g., /api/users/:id). Set the desired HTTP status code, authentication requirement, and simulated network latency to mimic real-world network conditions.",
@@ -182,6 +206,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "content-creator-tools",
           slug: "/tools/youtube-thumbnail-previewer",
           iconName: "Layout",
+          isRecent: true,
           tier: "free",
           howToUse: [
                "Upload Your Artwork & Metadata - Start by uploading your initial thumbnail design into the workspace. Enter your proposed video title, channel name (like CodeMines), and duration to create a realistic testing environment.",
@@ -200,6 +225,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/code-snippet-animator",
           iconName: "Video",
           tier: "free",
+          isRecent: true,
           howToUse: [
                "Paste Your Code and Select an IDE Theme - Navigate to the Editor tab and paste your snippet. Choose from developer-favorite syntax themes such as Dracula, Tokyo Night, Monokai, or GitHub Dark to ensure crisp contrast and accurate language highlighting.",
                "Choose Your Social Media Canvas Format - Open the Design tab to pick the optimal aspect ratio for your platform. Select 9:16 for vertical platforms (YouTube Shorts, Reels, TikTok), 16:9 for long-form desktop tutorials, or 1:1 for square social posts.",
@@ -268,6 +294,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/position-size-calculator",
           iconName: "Calculator",
           tier: "free",
+          isRecent: true,
           howToUse: [
                "Enter your total available account capital.",
                "Input your maximum Risk Per Trade percentage (keeping this between 1% and 2% is highly recommended).",
@@ -284,6 +311,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "LineChart",
           tier: "free",
           isPopular: true,
+          isRecent: true,
           howToUse: [
                "Set the current Spot Price of the underlying asset at the top of the Strategy Builder.",
                "Use the Leg builder to add Long/Short Calls or Puts to your position.",
@@ -362,6 +390,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/trade-journal-analyzer",
           iconName: "BookOpen",
           tier: "free",
+          isTrending: true,
+          isPopular: true,
           howToUse: [
                "Use the left panel to log a completed trade. Ensure you input the correct Direction (Long/Short), Entry Price, Exit Price, and Quantity.",
                "Click 'Save Trade' to add it to your ledger.",
@@ -395,6 +425,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "FileText",
           tier: "free", // 🟢 100% Free
           isTrending: true,
+          isPopular: true,
           howToUse: [
                "Input your company name, sender details, and client billing info in the left editor panel.",
                "Customize invoice number, issue date, due date, and currency symbol.",
@@ -424,6 +455,9 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/saas-pricing-simulator",
           iconName: "BarChart3",
           tier: "free", // 🟢 100% Free
+          isRecent: true,
+          isTrending: true,
+          isPopular: true,
           howToUse: [
                "Input your monthly subscription price tier and expected active subscriber count.",
                "Configure per-user server hosting, AI/API usage, customer support, and payment gateway fees.",
@@ -471,7 +505,10 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/prompt-optimizer", // Note: Verify this matches your URL structure!
           iconName: "Wand2",
           tier: "free", // 🟢 100% Free
+          isRecent: true,
           badgeText: "Free",
+          isTrending: true,
+          isPopular: true,
           howToUse: [
                "Select the target AI model (GPT-4, Claude 3, Gemini) to apply model-specific instructions.",
                "Choose an optimization framework (CoT, RTF, XML) based on how complex your task is.",
@@ -553,6 +590,9 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/meta-tags-generator",
           iconName: "Code",
           tier: "free", // 🟢 100% Free
+          isRecent: true,
+          isTrending: true,
+          isPopular: true,
           howToUse: [
                "Input your page title, meta description, canonical URL, and social share image URL.",
                "Switch between Google Search Preview and Facebook/LinkedIn OG Card previews to inspect how your link will appear.",
@@ -568,6 +608,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/world-clock-timezone-visualizer",
           iconName: "Clock",
           tier: "free", // 🟢 100% Free
+          isRecent: true,
           badgeText: "Free",
           howToUse: [
                "Use the dropdown menu to add your remote team members' time zones to the Active Workspaces list.",
@@ -633,6 +674,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/automated-sop-builder",
           iconName: "List",
           tier: "free", // 🟢 Updated to 100% Free
+          isRecent: true,
           badgeText: "Free",
           howToUse: [
                "Fill out the document metadata (Title, Department, Author) to generate the official SOP header.",
@@ -654,6 +696,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           badgeText: "Free",
           isTrending: true,
+          isPopular: true,
+          isRecent: true,
           howToUse: [
                "Select the desired Schema type (Article, Product, FAQ Page, Organization, or Local Business).",
                "Fill in the structured data fields in the left-hand form editor.",
@@ -687,6 +731,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "ShieldAlert",
           tier: "free",
           badgeText: "Free",
+          isTrending: true,
+          isPopular: true,
           isRecent: true, // <-- Add this property
           howToUse: [
                "Select the 'Robots.txt Simulator' tab to test indexation rules.",
@@ -705,6 +751,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Network",
           tier: "free",
           badgeText: "Free",
+          isRecent: true,
           howToUse: [
                "Enter a core niche keyword (e.g., 'CRM Software' or 'Keto Diet').",
                "Optionally define a target audience (e.g., 'Small Business').",
@@ -794,6 +841,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           badgeText: "Free",
           isRecent: true, // <-- Add this property
+          isTrending: true,
+          isPopular: true,
           howToUse: [
                "Type or paste a password in the 'Target Password' field to calculate its Shannon Entropy.",
                "Review the 'Est. GPU Brute-Force Time' to see how long it would take an attacker array to crack it.",
@@ -830,6 +879,8 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "FileKey",
           tier: "free",
           isPopular: true,
+          isTrending: true,
+          isRecent: true,
           tags: [
                "Cybersecurity",
                "Secret Scanner",
@@ -880,7 +931,9 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/hash-hmac-generator",
           iconName: "Fingerprint",
           tier: "free",
-          isPopular: false,
+          isTrending: true,
+          isPopular: true,
+          isRecent: true,
           tags: [
                "Cybersecurity",
                "Hashing",
@@ -918,6 +971,87 @@ export const MASTER_TOOLS_LIST: Tool[] = [
                "Compare the calculated digest against an expected hash to verify file integrity instantly."
           ]
      },
+     // ==========================================
+     // IMAGE TOOLS CATEGORY
+     // ==========================================
+     {
+          id: "img-1",
+          name: "Image Compressor",
+          description: "Reduce image file sizes locally in your browser. Compress JPG, PNG, and WebP without losing quality.",
+          category: "image-tools",
+          slug: "/tools/free-image-compressor",
+          iconName: "Minimize",
+          tier: "free",
+          isTrending: true,
+          isPopular: true,
+          isRecent: true,
+          tags: ["Image Tools", "Image Compression", "JPG", "PNG", "WebP", "Optimization"],
+          seo: {
+               metaTitle: "Image Compressor - Compress JPG, PNG & WebP Online Free | ToolLok",
+               metaDescription: "Free online image compressor. Reduce JPG, PNG, and WebP file sizes instantly. 100% local browser processing—no uploads, complete privacy.",
+               keywords: ["image compressor", "free image compressor", "compress image online", "image size reducer", "JPG compressor", "PNG compressor", "WebP compressor", "reduce image size", "browser image compressor", "batch image compressor"]
+          },
+          howToUse: [
+               "Drag and drop your images into the workspace, or click 'Add Files'.",
+               "Select a Compression Mode (Smart, Maximum, or Target Size) on the left panel.",
+               "Click 'Optimize Images'. Processing happens instantly without uploading.",
+               "Use the before/after slider to check quality, then download individually or as a ZIP."
+          ]
+     },
+     // ==========================================
+     // PDF TOOLS CATEGORY
+     // ==========================================
+     {
+          id: "pdf-1",
+          name: "Merge PDF",
+          description: "Combine multiple PDF files into a single document instantly. Drag, drop, reorder, and merge.",
+          category: "pdf-tools",
+          slug: "/tools/free-merge-pdf-files",
+          iconName: "FilePlus",
+          tier: "free",
+          isTrending: true,
+          isPopular: true,
+          isRecent: true,
+          tags: [
+               "PDF Tools",
+               "Merge PDF",
+               "PDF Merger",
+               "PDF Organizer",
+               "Document Tools",
+               "PDF Editor",
+               "Productivity Tools",
+               "Privacy"
+          ],
+          seo: {
+               metaTitle: "Merge PDF Online - Combine PDF Files Free | ToolLok",
+               metaDescription: "Combine multiple PDF documents into a single file easily. Reorder pages, organize documents, and merge PDFs with 100% local, secure browser processing.",
+               keywords: [
+                    "merge PDF",
+                    "merge PDF online",
+                    "combine PDF",
+                    "combine PDF files",
+                    "PDF merger",
+                    "free PDF merger",
+                    "merge multiple PDFs",
+                    "merge PDF files",
+                    "join PDF files",
+                    "combine documents",
+                    "PDF combiner",
+                    "online PDF merger",
+                    "free merge PDF tool",
+                    "PDF organizer",
+                    "reorder PDF pages",
+                    "local PDF merger",
+                    "secure PDF merger"
+               ]
+          },
+          howToUse: [
+               "Drag and drop multiple PDF files into the upload workspace.",
+               "Drag the documents up or down to arrange them in your desired order.",
+               "Click 'Edit Pages' on any document to extract specific page ranges or rotate the document.",
+               "Enter a custom output filename and click 'Merge PDFs Now' to instantly download your combined file."
+          ]
+     }
 ];
 
 export const POPULAR_TOOLS = MASTER_TOOLS_LIST.filter(t => t.isPopular);

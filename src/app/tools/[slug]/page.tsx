@@ -55,6 +55,8 @@ const toolComponents: Record<string, any> = {
      "disposable-endpoint-tester": dynamic(() => import("@/components/tools/DisposableEndpointTester"), { loading: () => <ToolSkeleton /> }),
      "local-env-secret-token-scanner": dynamic(() => import("@/components/tools/LocalEnvSecretScanner"), { loading: () => <ToolSkeleton /> }),
      "hash-hmac-generator": dynamic(() => import("@/components/tools/WebCryptoHashSuite"), { loading: () => <ToolSkeleton /> }),
+     "free-image-compressor": dynamic(() => import("@/components/tools/ImageCompressor"), { loading: () => <ToolSkeleton /> }),
+     "free-merge-pdf-files": dynamic(() => import("@/components/tools/MergePdf"), { loading: () => <ToolSkeleton /> })
 };
 
 interface PageProps {
