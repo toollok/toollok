@@ -122,7 +122,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           isPopular: true,
           isTrending: true,
-          isRecent: true,
           howToUse: [
                "Browse & Search Animation Library across categories.",
                "Configure Triggers & Timing (Infinite, Hover, Click, Focus, Duration, Easing).",
@@ -138,7 +137,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/json-formatter-validator",
           iconName: "FileJson",
           tier: "free",
-          isRecent: true,
           isPopular: true,
           isTrending: true,
           howToUse: [
@@ -206,7 +204,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           category: "content-creator-tools",
           slug: "/tools/youtube-thumbnail-previewer",
           iconName: "Layout",
-          isRecent: true,
           tier: "free",
           howToUse: [
                "Upload Your Artwork & Metadata - Start by uploading your initial thumbnail design into the workspace. Enter your proposed video title, channel name (like CodeMines), and duration to create a realistic testing environment.",
@@ -225,7 +222,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/code-snippet-animator",
           iconName: "Video",
           tier: "free",
-          isRecent: true,
           howToUse: [
                "Paste Your Code and Select an IDE Theme - Navigate to the Editor tab and paste your snippet. Choose from developer-favorite syntax themes such as Dracula, Tokyo Night, Monokai, or GitHub Dark to ensure crisp contrast and accurate language highlighting.",
                "Choose Your Social Media Canvas Format - Open the Design tab to pick the optimal aspect ratio for your platform. Select 9:16 for vertical platforms (YouTube Shorts, Reels, TikTok), 16:9 for long-form desktop tutorials, or 1:1 for square social posts.",
@@ -259,7 +255,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/thumbnail-ctr-predictor",
           iconName: "Eye",
           tier: "free", // Set to 🟢 Free
-          isPopular: true,
           howToUse: [
                "Upload your video thumbnail image (or pick a sample template) to load it into the canvas analyzer.",
                "The browser-side algorithm automatically generates a thermal heatmap highlighting viewer focal attention zones.",
@@ -294,7 +289,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/position-size-calculator",
           iconName: "Calculator",
           tier: "free",
-          isRecent: true,
+          isPopular: true,
           howToUse: [
                "Enter your total available account capital.",
                "Input your maximum Risk Per Trade percentage (keeping this between 1% and 2% is highly recommended).",
@@ -311,7 +306,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "LineChart",
           tier: "free",
           isPopular: true,
-          isRecent: true,
           howToUse: [
                "Set the current Spot Price of the underlying asset at the top of the Strategy Builder.",
                "Use the Leg builder to add Long/Short Calls or Puts to your position.",
@@ -390,8 +384,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/trade-journal-analyzer",
           iconName: "BookOpen",
           tier: "free",
-          isTrending: true,
-          isPopular: true,
           howToUse: [
                "Use the left panel to log a completed trade. Ensure you input the correct Direction (Long/Short), Entry Price, Exit Price, and Quantity.",
                "Click 'Save Trade' to add it to your ledger.",
@@ -456,7 +448,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "BarChart3",
           tier: "free", // 🟢 100% Free
           isRecent: true,
-          isTrending: true,
           isPopular: true,
           howToUse: [
                "Input your monthly subscription price tier and expected active subscriber count.",
@@ -505,10 +496,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/prompt-optimizer", // Note: Verify this matches your URL structure!
           iconName: "Wand2",
           tier: "free", // 🟢 100% Free
-          isRecent: true,
           badgeText: "Free",
-          isTrending: true,
-          isPopular: true,
           howToUse: [
                "Select the target AI model (GPT-4, Claude 3, Gemini) to apply model-specific instructions.",
                "Choose an optimization framework (CoT, RTF, XML) based on how complex your task is.",
@@ -592,7 +580,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free", // 🟢 100% Free
           isRecent: true,
           isTrending: true,
-          isPopular: true,
           howToUse: [
                "Input your page title, meta description, canonical URL, and social share image URL.",
                "Switch between Google Search Preview and Facebook/LinkedIn OG Card previews to inspect how your link will appear.",
@@ -695,8 +682,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Code",
           tier: "free",
           badgeText: "Free",
-          isTrending: true,
-          isPopular: true,
           isRecent: true,
           howToUse: [
                "Select the desired Schema type (Article, Product, FAQ Page, Organization, or Local Business).",
@@ -733,7 +718,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           badgeText: "Free",
           isTrending: true,
           isPopular: true,
-          isRecent: true, // <-- Add this property
           howToUse: [
                "Select the 'Robots.txt Simulator' tab to test indexation rules.",
                "Paste your robots.txt content, enter a target URL, and select a User-Agent (e.g., Googlebot).",
@@ -823,7 +807,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           badgeText: "Free",
           isRecent: true, // <-- Add this property
-          isTrending: true,
           howToUse: [
                "Select a local model architecture from the WebGPU Engine Config panel.",
                "Click 'Download Weights & Load Engine' to simulate moving the model into your browser's VRAM.",
@@ -840,7 +823,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           iconName: "Key",
           tier: "free",
           badgeText: "Free",
-          isRecent: true, // <-- Add this property
           isTrending: true,
           isPopular: true,
           howToUse: [
@@ -878,7 +860,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/local-env-secret-token-scanner",
           iconName: "FileKey",
           tier: "free",
-          isPopular: true,
+          badgeText: "Free",
           isTrending: true,
           isRecent: true,
           tags: [
@@ -931,7 +913,7 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/hash-hmac-generator",
           iconName: "Fingerprint",
           tier: "free",
-          isTrending: true,
+          badgeText: "Free",
           isPopular: true,
           isRecent: true,
           tags: [
@@ -982,9 +964,9 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           slug: "/tools/free-image-compressor",
           iconName: "Minimize",
           tier: "free",
+          badgeText: "Free",
           isTrending: true,
           isPopular: true,
-          isRecent: true,
           tags: ["Image Tools", "Image Compression", "JPG", "PNG", "WebP", "Optimization"],
           seo: {
                metaTitle: "Image Compressor - Compress JPG, PNG & WebP Online Free | ToolLok",
@@ -1011,7 +993,6 @@ export const MASTER_TOOLS_LIST: Tool[] = [
           tier: "free",
           isTrending: true,
           isPopular: true,
-          isRecent: true,
           tags: [
                "PDF Tools",
                "Merge PDF",
