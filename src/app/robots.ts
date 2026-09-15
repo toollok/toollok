@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
                allow: '/',
                disallow: ['/api/'],
           },
-          sitemap: 'https://toollok.com/sitemap.xml',
+          sitemap: 'https://www.toollok.com/sitemap.xml',
      };
 }
