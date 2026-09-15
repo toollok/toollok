@@ -3,7 +3,7 @@ import { MASTER_TOOLS_LIST } from '@/constants';
 import { ALL_BLOG_POSTS } from '@/content/blog';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-     const baseUrl = 'https://toollok.com';
+     const baseUrl = 'https://www.toollok.com';
      const currentDate = new Date();
 
      // 1. Core Static Routes
