@@ -456,9 +456,9 @@ export default function ApiMockServer() {
                                              <div className="flex items-center justify-between overflow-hidden gap-2">
                                                   <div className="flex items-center gap-2 overflow-hidden">
                                                        <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${ep.method === 'GET' ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400' :
-                                                                 ep.method === 'POST' ? 'bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400' :
-                                                                      ep.method === 'GRAPHQL' ? 'bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-400' :
-                                                                           'bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400'
+                                                            ep.method === 'POST' ? 'bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400' :
+                                                                 ep.method === 'GRAPHQL' ? 'bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-400' :
+                                                                      'bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400'
                                                             }`}>
                                                             {ep.method}
                                                        </span>
@@ -876,6 +876,18 @@ export default function ApiMockServer() {
                                    <h4 className="text-xs font-bold text-gray-900 dark:text-white mb-1">Is my proprietary data sent to external servers?</h4>
                                    <p className="text-[11px] text-gray-600 dark:text-gray-400">Absolutely not. This is a secure, client-side sandbox. All routing rules, synthetic generation algorithms, and payload interpolations execute precisely within your local browser runtime.</p>
                               </div>
+                         </div>
+                    </div>
+                    {/* Related Tools Internal Linking */}
+                    <div className="pt-8 mt-4 border-t border-gray-200 dark:border-gray-800">
+                         <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 block">
+                              Related Tools
+                         </span>
+                         <div className="flex flex-wrap gap-3">
+                              <Link href="/tools/css-animation-builder" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">CSS Animation & Micro-Interaction Generator</Link>
+                              <Link href="/tools/json-formatter-validator" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">JSON Developer Toolkit</Link>
+                              <Link href="/tools/regex-tester-visualizer" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">Interactive Regex Tester</Link>
+                              <Link href="/tools/legacy-code-refactorer" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">Legacy Codebase Refactorer</Link>
                          </div>
                     </div>
                </div>

@@ -247,6 +247,19 @@ export default function RegexTester() {
                          </div>
                     </div>
 
+                    {/* Related Tools Internal Linking */}
+                    <div className="pt-8 mt-4 border-t border-gray-200 dark:border-gray-800">
+                         <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 block">
+                              Related Tools
+                         </span>
+                         <div className="flex flex-wrap gap-3">
+                              <Link href="/tools/css-animation-builder" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">CSS Animation & Micro-Interaction Generator</Link>
+                              <Link href="/tools/json-formatter-validator" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">JSON Developer Toolkit</Link>
+                              <Link href="/tools/api-mock-server" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">API Mock Server & Data Generator</Link>
+                              <Link href="/tools/legacy-code-refactorer" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">Legacy Codebase Refactorer</Link>
+                         </div>
+                    </div>
+
                     <script
                          type="application/ld+json"
                          dangerouslySetInnerHTML={{

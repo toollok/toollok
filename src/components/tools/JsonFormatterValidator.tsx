@@ -303,8 +303,8 @@ export default function JsonToolkit() {
                                    key={item.id}
                                    onClick={() => setActiveTab(item.id)}
                                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all whitespace-nowrap ${isActive
-                                             ? "bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 shadow-sm border border-gray-200 dark:border-gray-700"
-                                             : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/50 border border-transparent"
+                                        ? "bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 shadow-sm border border-gray-200 dark:border-gray-700"
+                                        : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800/50 border border-transparent"
                                         }`}
                               >
                                    <Icon size={16} /> {item.label}
@@ -547,6 +547,19 @@ export default function JsonToolkit() {
                                    <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-2">How does the "Auto-Repair" function work?</h4>
                                    <p className="text-xs text-gray-600 dark:text-gray-400">The repair utility uses regular expressions to catch and fix common syntax errors made by humans, such as trailing commas at the end of objects, unquoted keys, or single-quoted strings that violate the strict JSON standard.</p>
                               </div>
+                         </div>
+                    </div>
+
+                    {/* Related Tools Internal Linking */}
+                    <div className="pt-8 mt-4 border-t border-gray-200 dark:border-gray-800">
+                         <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 block">
+                              Related Tools
+                         </span>
+                         <div className="flex flex-wrap gap-3">
+                              <Link href="/tools/css-animation-builder" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">CSS Animation & Micro-Interaction Generator</Link>
+                              <Link href="/tools/api-mock-server" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">API Mock Server & Data Generator</Link>
+                              <Link href="/tools/regex-tester-visualizer" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">Interactive Regex Tester</Link>
+                              <Link href="/tools/legacy-code-refactorer" className="text-sm font-bold px-5 py-3 rounded-xl transition-all duration-200 bg-gray-100 dark:bg-[#1c2333] text-gray-700 dark:text-gray-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white shadow-sm">Legacy Codebase Refactorer</Link>
                          </div>
                     </div>
 
