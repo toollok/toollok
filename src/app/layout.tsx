@@ -12,6 +12,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.toollok.com"),
   ...generateHomepageMetadata(),
   title: "ToolLok – Free Online Tools for Developers, Creators & Businesses",
   description: "ToolLok offers free online tools for developers, creators, businesses, finance, and everyday tasks. Fast, secure, easy-to-use tools with no installation required.",
